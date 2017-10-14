@@ -36,7 +36,6 @@ _renderMovies=()=>{
   return movies
 }
   render() {
-    const{moives} =this.state;
     return (
       <div className={ this.state.movies ? "App" : "App-loading"}>
         {this.state.movies ? this._renderMovies():'Loding'}
