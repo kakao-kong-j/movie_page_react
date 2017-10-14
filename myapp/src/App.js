@@ -18,22 +18,29 @@ class App extends Component {
       })    
   }
   _callAPI=()=>{
-    return fetch("https://yts.ag/api/v2/list_movies.json?sort_by=rating")
+    return fetch("https://yts.ag/api/v2/list_movies.json?sort_by=download_count")
     .then(potato=>potato.json())
     .then(json=> json.data.movies)
     .catch(err=>console.log(err))
   }
 _renderMovies=()=>{
   const movies=this.state.movies.map(movie=>{
-    return <Movie title={movie.title} poster={movie.large_cover_image} key={movie.id}/>
+    return <Movie 
+    title={movie.title_english} 
+    poster={movie.large_cover_image} 
+    key={movie.id} 
+    genres={movie.genres}
+    synopsis={movie.synopsis}
+    />
   })
   return movies
 }
   render() {
+    const{moives} =this.state;
     return (
-      <div className="App">
-        {this.state.movies?this._renderMovies():'Loding'}
-        </div>
+      <div className={ this.state.movies ? "App" : "App-loading"}>
+        {this.state.movies ? this._renderMovies():'Loding'}
+      </div>
     );
   }
 }
