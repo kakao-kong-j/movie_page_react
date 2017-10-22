@@ -40,13 +40,23 @@ class App extends Component {
   })
   return movies
 }
-nextPage(T) {
-  this.setState((prevState, props,T) => {
-    return { pages: prevState.pages + parseInt(T) }
+nextPage() {
+  this.setState((prevState, props) => {
+    return { pages: prevState.pages+1}
   });
 }
-reRenderingPage(T){
-  this.nextPage(T);
+prevPage() {
+  this.setState((prevState, props) => {
+    return { pages: prevState.pages-1}
+  });
+}
+reRenderingPrevPage(){
+  this.prevPage();
+  this._getMovies();
+  console.log(this.state.pages)
+}
+reRenderingNextPage(){
+  this.nextPage();
   this._getMovies();
   console.log(this.state.pages)
 }
@@ -63,10 +73,10 @@ render() {
               <div className={ this.state.movies ? "App" : "App-loading"}>
                 {this.state.movies ? this._renderMovies():'Loading'}
               </div>
-              <button id='leftButton' onClick={() => this.reRenderingPage(-1)}>
+              <button id='leftButton' onClick={() => this.reRenderingPrevPage()}>
                 <img src={require('./img/left-arrow.png')}/>
               </button>
-              <button id='rightButton' onClick={() => this.reRenderingPage(1)}>
+              <button id='rightButton' onClick={() => this.reRenderingNextPage()}>
                 <img src={require('./img/right-arrow.png')}/>
               </button>
               </div>
