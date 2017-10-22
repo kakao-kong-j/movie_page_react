@@ -9,7 +9,23 @@
         flex-wrap: wrap;
     font-size:14px;
 }
-
+button{
+    bottom: 0;
+    border: 0;
+    outline: 0;
+    background:none;
+    position: fixed;
+    
+}
+#leftButton{
+    left:0;
+    float: left;
+    
+}
+#rightButton{
+    right: 0;
+    float: right;
+}
 .App-loading{
     padding-top: 100px;
     display: -ms-flexbox;

@@ -9,13 +9,12 @@ import Home from './routes/Home';
 //Update componentWillReceiveProps() -> shouldComponentUpdate()->componentWillUpdate()->render()->componentDidUpdate()
 //Render componentWillMount() -> render() -> componentDidMount()
 class App extends Component {
-  state={pages:'2'}
+  state={pages:1}
   componentDidMount(){
     this._getMovies();
   }
    _getMovies=async()=>{
       const movies=await this._callAPI()
-      console.log(movies);
       this.setState({
         movies
       })    
@@ -26,9 +25,9 @@ class App extends Component {
     .then(json=> json.data.movies)
     .catch(err=>console.log(err))
   }
-_renderMovies=()=>{
-  const movies=this.state.movies.map(movie=>{
-    return <Movie 
+  _renderMovies=()=>{
+    const movies=this.state.movies.map(movie=>{
+      return <Movie 
     language={movie.language}
     rating={movie.rating}
     title={movie.title_english} 
@@ -41,19 +40,38 @@ _renderMovies=()=>{
   })
   return movies
 }
-  render() {
+nextPage(T) {
+  this.setState((prevState, props,T) => {
+    return { pages: prevState.pages + parseInt(T) }
+  });
+}
+reRenderingPage(T){
+  this.nextPage(T);
+  this._getMovies();
+  console.log(this.state.pages)
+}
+render() {
     return (
       <Router>
-        <div>
-          <Header/>
-          <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/Introduce" component={Introduce}/>
+      <div>
+      <Header/>
+      <Switch>
+            <Route exact path="/"/>
+            <Route path="/Introduce"/>
             <Route path="/movielist">
+            <div>
               <div className={ this.state.movies ? "App" : "App-loading"}>
                 {this.state.movies ? this._renderMovies():'Loading'}
               </div>
+              <button id='leftButton' onClick={() => this.reRenderingPage(-1)}>
+                <img src={require('./img/left-arrow.png')}/>
+              </button>
+              <button id='rightButton' onClick={() => this.reRenderingPage(1)}>
+                <img src={require('./img/right-arrow.png')}/>
+              </button>
+              </div>
             </Route>
+            <Route path="/board"/>
             <Route path="/login"/>
           </Switch>
         </div>
