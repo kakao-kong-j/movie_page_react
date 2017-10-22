@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 import Movie from './Movie.js';
-import InfiniteScroll from 'react-infinite-scroller';
-import {BrowserRouter as Router,Route} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Header from './components/Header';
+import Introduce from './routes/Introduce';
+import Home from './routes/Home';
 //Update componentWillReceiveProps() -> shouldComponentUpdate()->componentWillUpdate()->render()->componentDidUpdate()
 //Render componentWillMount() -> render() -> componentDidMount()
 class App extends Component {
@@ -41,9 +43,21 @@ _renderMovies=()=>{
 }
   render() {
     return (
-      <div className={ this.state.movies ? "App" : "App-loading"}>
-        {this.state.movies ? this._renderMovies():'Loding'}
-      </div>
+      <Router>
+        <div>
+          <Header/>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route path="/Introduce" component={Introduce}/>
+            <Route path="/movielist">
+              <div className={ this.state.movies ? "App" : "App-loading"}>
+                {this.state.movies ? this._renderMovies():'Loding'}
+              </div>
+            </Route>
+            <Route path="/login"/>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

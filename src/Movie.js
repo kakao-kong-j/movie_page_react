@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import './movie.css';
+import './css/movie.css';
 import LinesEllipsis from'react-lines-ellipsis'
 
 class Movie extends Component{

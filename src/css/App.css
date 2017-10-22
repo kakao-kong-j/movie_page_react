@@ -1,5 +1,6 @@
 .App {
     padding:50px;
+    padding-top: 100px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: distribute;
@@ -9,7 +10,7 @@
     font-size:14px;
 }
 
-.App--loading{
+.App-loading{
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;
