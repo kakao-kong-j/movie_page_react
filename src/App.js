@@ -9,7 +9,7 @@ import Home from './routes/Home';
 //Update componentWillReceiveProps() -> shouldComponentUpdate()->componentWillUpdate()->render()->componentDidUpdate()
 //Render componentWillMount() -> render() -> componentDidMount()
 class App extends Component {
-  state={}
+  state={pages:'2'}
   componentDidMount(){
     this._getMovies();
   }
@@ -21,7 +21,7 @@ class App extends Component {
       })    
   }
   _callAPI=()=>{
-    return fetch("https://yts.ag/api/v2/list_movies.json?sort_by=download_count")
+    return fetch("https://yts.ag/api/v2/list_movies.json?sort_by=rating&page="+this.state.pages)
     .then(potato=>potato.json())
     .then(json=> json.data.movies)
     .catch(err=>console.log(err))
@@ -51,7 +51,7 @@ _renderMovies=()=>{
             <Route path="/Introduce" component={Introduce}/>
             <Route path="/movielist">
               <div className={ this.state.movies ? "App" : "App-loading"}>
-                {this.state.movies ? this._renderMovies():'Loding'}
+                {this.state.movies ? this._renderMovies():'Loading'}
               </div>
             </Route>
             <Route path="/login"/>
