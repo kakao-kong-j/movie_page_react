@@ -15,14 +15,18 @@ class Movie extends Component{
                     <MoviePoster poster={this.props.poster} alt={this.props.title}/>
                 </div>
                 <div className="Movie__Column">
+                <br/>
                     <a href={"./MovieDetail/"+this.props.id}>{this.props.title}</a>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div className="Movie__Genres">
                         {this.props.genres.map((genre,index)=><MovieGenres genre={genre} key={index}/>)}
                     </div>
                     <div className="Movie__Synopsis">
                     <LinesEllipsis
                     text={this.props.synopsis}
-                    maxLine='3'
+                    maxLine='4'
                     ellipsis='....'
                     trimRight
                     baseOn='letters'

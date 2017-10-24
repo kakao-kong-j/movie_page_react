@@ -27,12 +27,6 @@ class MovieDetail extends Component {
     render() {
         return (
             <div>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
                 <div>
                 {this.state.movieinfo ? 
                     <div className="MovieDetail">
@@ -44,27 +38,37 @@ class MovieDetail extends Component {
                                 {this.state.movieinfo.title}
                             </h1>
                             <div className="MovieDetail__Genres">
-                                {this.state.movieinfo.genres.map((genre,index)=><MovieGenres genre={genre} key={index}/>)}
+                                Genre : {this.state.movieinfo.genres.map((genre,index)=><MovieGenres genre={genre} key={index}/>)}
                             </div>
                             <div className="MovieDetail__rating">
-                                rating: {this.state.movieinfo.rating}
+                                Rating : {this.state.movieinfo.rating}
                             </div>
+                            <br/>
                             <div className="MovieDetail__language">
-                                language: {this.state.movieinfo.language}
+                                Language : {this.state.movieinfo.language}
                             </div>
+                            <br/>
                             <div className="MovieDetail__runtime">
-                                runtime: {this.state.movieinfo.runtime} min
+                                Runtime : {this.state.movieinfo.runtime} min
                             </div>
+                            <br/>
                             <div className="MovieDetail__years">
-                                years: {this.state.movieinfo.years}
+                                Year : {this.state.movieinfo.year}
                             </div>
                             <div className="MovieDetail__Casting">
+                                <h1>
+                                    Casting
+                                </h1>
                                 {this.state.movieinfo.cast.map((casts,index)=><MovieCasting casts={casts} key={index}/>)}
                             </div>
+                            <h1>Description</h1>
                             <div className="MovieDetail__description">
+                                
                                 {this.state.movieinfo.description_full}
                             </div>
-                            <div className="MovieDetail__description">
+                        </div>
+                        <div className="MovieDetail__Column">
+                            <div className="MovieDetail__ScreenShot">
                                 <MovieScreenshot 
                                 img1={this.state.movieinfo.large_screenshot_image1} 
                                 img2={this.state.movieinfo.large_screenshot_image2} 

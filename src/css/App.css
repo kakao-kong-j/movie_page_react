@@ -15,15 +15,14 @@ button{
     outline: 0;
     background:none;
     position: fixed;
-    
 }
 #leftButton{
-    left:0;
+    left:10px;
     float: left;
     
 }
 #rightButton{
-    right: 0;
+    right: 10px;
     float: right;
 }
 .App-loading{

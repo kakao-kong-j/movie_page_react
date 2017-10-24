@@ -33,6 +33,7 @@
 .Movie a{
     font-size:20px;
     font-weight: 600;
+    color: black; text-decoration: none;
 }
 
 .Movie .Movie__Genres{

@@ -53,14 +53,19 @@ prevPage() {
   });
 }
 reRenderingPrevPage(){
-  this.prevPage();
-  this._getMovies();
-  console.log(this.state.pages)
+  const a=this
+  setTimeout(function () {
+    a.prevPage();
+    a._getMovies();
+  }, 0);
+  
 }
 reRenderingNextPage(){
-  this.nextPage();
-  this._getMovies();
-  console.log(this.state.pages)
+  const a=this
+  setTimeout(function () {
+    a.nextPage();
+    a._getMovies();
+  }, 0);
 }
 render() {
     return (
