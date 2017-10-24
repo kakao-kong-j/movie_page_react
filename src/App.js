@@ -20,7 +20,7 @@ class App extends Component {
       })    
   }
   _callAPI=()=>{
-    return fetch("https://yts.ag/api/v2/list_movies.json?sort_by=rating&page="+this.state.pages)
+    return fetch("https://yts.ag/api/v2/list_movies.json?sort_by=rating&with_rt_ratings=true&page="+this.state.pages)
     .then(potato=>potato.json())
     .then(json=> json.data.movies)
     .catch(err=>console.log(err))
@@ -28,7 +28,9 @@ class App extends Component {
   _renderMovies=()=>{
     const movies=this.state.movies.map(movie=>{
       return <Movie 
+    id={movie.id}
     language={movie.language}
+    rt_rating={movie.with_rt_ratings}
     rating={movie.rating}
     title={movie.title_english} 
     poster={movie.large_cover_image} 
@@ -63,26 +65,26 @@ reRenderingNextPage(){
 render() {
     return (
       <Router>
-      <div>
-      <Header/>
-      <Switch>
-            <Route exact path="/"/>
-            <Route path="/Introduce"/>
-            <Route path="/movielist">
-            <div>
-              <div className={ this.state.movies ? "App" : "App-loading"}>
-                {this.state.movies ? this._renderMovies():'Loading'}
-              </div>
-              <button id='leftButton' onClick={() => this.reRenderingPrevPage()}>
-                <img src={require('./img/left-arrow.png')}/>
-              </button>
-              <button id='rightButton' onClick={() => this.reRenderingNextPage()}>
-                <img src={require('./img/right-arrow.png')}/>
-              </button>
+        <div>
+          <Header/>
+            <Switch>
+            <Route exact path="/">
+              <div>
+                <div className={ this.state.movies ? "App" : "App-loading"}>
+                  {this.state.movies ? this._renderMovies():'Loading'}
+                </div>
+                <button id='leftButton' onClick={() => this.reRenderingPrevPage()}>
+                  <img src={require('./img/left-arrow.png')}/>
+                </button>
+                <button id='rightButton' onClick={() => this.reRenderingNextPage()}>
+                  <img src={require('./img/right-arrow.png')}/>
+                </button>
               </div>
             </Route>
+            <Route path="/Introduce"/>
             <Route path="/board"/>
             <Route path="/login"/>
+            <Route path="/moviedetail"/>
           </Switch>
         </div>
       </Router>

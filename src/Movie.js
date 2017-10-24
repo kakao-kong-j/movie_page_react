@@ -13,7 +13,7 @@ class Movie extends Component{
                     <MoviePoster poster={this.props.poster} alt={this.props.title}/>
                 </div>
                 <div className="Movie__Column">
-                    <h1>{this.props.title}</h1>
+                    <a href={"./moviedetail?id="+this.props.id}>{this.props.title}</a>
                     <div className="Movie__Genres">
                         {this.props.genres.map((genre,index)=><MovieGenres genre={genre} key={index}/>)}
                     </div>
