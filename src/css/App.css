@@ -1,0 +1,38 @@
+.App {
+    padding:50px;
+    padding-top: 100px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    font-size:14px;
+}
+button{
+    bottom: 0;
+    border: 0;
+    outline: 0;
+    background:none;
+    position: fixed;
+}
+#leftButton{
+    left:10px;
+    float: left;
+    
+}
+#rightButton{
+    right: 10px;
+    float: right;
+}
+.App-loading{
+    padding-top: 100px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    height: 100%;
+}
+
