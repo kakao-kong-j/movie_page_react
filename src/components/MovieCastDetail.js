@@ -15,10 +15,10 @@ class MovieCastDetail extends Component {
                     <img src={this.props.url_small_image} title={this.props.name} alt={this.props.name} className="Casting__Img"/>
                     </div>
                     <div className="Casting_Name">
-                        name: {this.props.name}
+                        Name: {this.props.name}
                     </div>
                     <div className="Casting_CharacterName">
-                    character name: {this.props.character_name}
+                    Character Name: {this.props.character_name}
                     </div>
                 </span>
             </div>

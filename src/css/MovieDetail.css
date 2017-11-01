@@ -68,7 +68,7 @@
 }
 
 #root > div > div:nth-child(2) > div > div > div:nth-child(2) > div.MovieDetail__description {
-    width:70%;
+    width:90%;
     border:5px solid #2eb9ce;
     padding: 5px;
     position: relative;
