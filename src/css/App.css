@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Vollkorn+SC" rel="stylesheet');
 .App {
+    font-family: 'Vollkorn+SC', sans-serif;
     padding:50px;
     padding-top: 100px;
     display: -ms-flexbox;
@@ -35,4 +37,3 @@ button{
         align-items: center;
     height: 100%;
 }
-

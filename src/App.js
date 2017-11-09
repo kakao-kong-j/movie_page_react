@@ -20,7 +20,7 @@ class App extends Component {
       })    
   }
   _callAPI=()=>{
-    return fetch("https://yts.ag/api/v2/list_movies.json?sort_by=rating&with_rt_ratings=true&page="+this.state.pages)
+    return fetch("https://yts.ag/api/v2/list_movies.json?sort_by=like_count&with_rt_ratings=true&page="+this.state.pages)
     .then(temp=>temp.json())
     .then(json=> json.data.movies)
     .catch(err=>console.log(err))
@@ -71,7 +71,7 @@ render() {
     return (
       <Router>
         <div>
-          <Header/>
+        <Header/>
             <Switch>
             <Route exact path="/" name='home'>
               <div>
