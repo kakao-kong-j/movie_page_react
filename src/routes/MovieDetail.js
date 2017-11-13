@@ -84,15 +84,3 @@ class MovieDetail extends Component {
 }
 
 export default MovieDetail;
-
-// <Movie
-// id={this.state.movieinfo.id}
-// language={this.state.movieinfo.language}
-// rt_rating={this.state.movieinfo.with_rt_ratings}
-// rating={this.state.movieinfo.rating}
-// title={this.state.movieinfo.title_english} 
-// poster={this.state.movieinfo.large_cover_image} 
-// key={this.state.movieinfo.id} 
-// genres={this.state.movieinfo.genres}
-// synopsis={this.state.movieinfo.synopsis}
-// year={this.state.movieinfo.year}/>

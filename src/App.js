@@ -6,8 +6,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Introduce from './routes/Introduce';
 import MovieDetail from './routes/MovieDetail';
-//Update componentWillReceiveProps() -> shouldComponentUpdate()->componentWillUpdate()->render()->componentDidUpdate()
-//Render componentWillMount() -> render() -> componentDidMount()
 class App extends Component {
   state={pages:1}
   componentDidMount(){

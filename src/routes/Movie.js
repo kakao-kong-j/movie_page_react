@@ -38,28 +38,6 @@ class Movie extends Component{
     }
 }
 
-// class MoviePoster extends Component{
-
-//     static PropTypes={
-//         poster:PropTypes.string.isRequired
-//     }
-//     render(){
-//         return(
-//             <img src={this.props.poster} title={this.props.alt} className="Movie__Poster"/>
-//         )
-//     }
-// }
-// class MovieGenres extends Component{
-    
-//         static PropTypes={
-//             genre:PropTypes.array.isRequired
-//         }
-//         render(){
-//             return(
-//                 <span className="Movie__Genre">  {this.props.genre}  </span>
-//             )
-//         }
-//     }
 Movie.propTypes={
     poster:PropTypes.string.isRequired,
     title:PropTypes.string.isRequired,
@@ -68,7 +46,4 @@ Movie.propTypes={
     
 }
 
-// MovieGenres.propTypes={
-//     genre:PropTypes.string.isRequired
-// }
 export default Movie;

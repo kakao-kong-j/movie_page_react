@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import MovieCastDetail from'./MovieCastDetail'
 
 class MovieCasting extends Component{
-    
-        // static PropTypes={
-        //     casts:PropTypes.array.isRequired,
-        // //     // character_name:PropTypes.string.isRequired,
-        // //     // name:PropTypes.string.isRequired,
-        // //     // url_small_image:PropTypes.string.isRequired
-        // }
-            
         render(){
             return(
                 <span className="Movie__Casting">  
@@ -22,10 +14,4 @@ class MovieCasting extends Component{
             )
         }
     }
-    // MovieCasting.propTypes={
-    //     casts:PropTypes.array.isRequired,
-    // //     character_name:PropTypes.string.isRequired,
-    // //     name:PropTypes.string.isRequired,
-    // //     url_small_image:PropTypes.string.isRequired
-    // }
 export default MovieCasting;
