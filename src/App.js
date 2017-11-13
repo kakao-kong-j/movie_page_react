@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import Movie from './routes/Movie.js';
+import * as firebase from "firebase";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
 import Introduce from './routes/Introduce';
 import MovieDetail from './routes/MovieDetail';
+
+var firebase_config = {
+  apiKey: "AIzaSyBJ5l0y3m6uTS1Ocxw6-2Ej8beZaP9xkgQ",
+  authDomain: "movieinfo-4e81d.firebaseapp.com",
+  databaseURL: "https://movieinfo-4e81d.firebaseio.com",
+  projectId: "movieinfo-4e81d",
+  storageBucket: "movieinfo-4e81d.appspot.com",
+  messagingSenderId: "705678923099"
+};
+firebase.initializeApp(firebase_config);
+
 class App extends Component {
   state={pages:1}
   componentDidMount(){
