@@ -4,6 +4,7 @@ import MovieScreenshot from '../components/MovieScreenshot';
 import MoviePoster from '../components/MoviePoster';
 import MovieGenres from '../components/MovieGenres';
 import MovieCasting from'../components/MovieCasting';
+import Comment from '../components/Comment';
 class MovieDetail extends Component {
     constructor(props){
         super(props);
@@ -74,6 +75,9 @@ class MovieDetail extends Component {
                                 img2={this.state.movieinfo.large_screenshot_image2} 
                                 img3={this.state.movieinfo.large_screenshot_image3}/>
                             </div>
+                        </div>
+                        <div className="Comment">
+                            <Comment id={this.state.movieinfo.id}/>
                         </div>
                     </div>
                     :'Loading'}
