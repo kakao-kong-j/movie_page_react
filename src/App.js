@@ -1,27 +1,39 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import Movie from './routes/Movie.js';
-import * as firebase from "firebase";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import {firebaseAuth} from './script/firebase' 
 import Header from './components/Header';
 import Introduce from './routes/Introduce';
 import MovieDetail from './routes/MovieDetail';
-
-var firebase_config = {
-  apiKey: "AIzaSyBJ5l0y3m6uTS1Ocxw6-2Ej8beZaP9xkgQ",
-  authDomain: "movieinfo-4e81d.firebaseapp.com",
-  databaseURL: "https://movieinfo-4e81d.firebaseio.com",
-  projectId: "movieinfo-4e81d",
-  storageBucket: "movieinfo-4e81d.appspot.com",
-  messagingSenderId: "705678923099"
-};
-firebase.initializeApp(firebase_config);
+import LoginModal from './components/LoginModal';
+import Board from './routes/Board'
 
 class App extends Component {
-  state={pages:1}
+
+  state={
+    pages:1,
+    authed:false,
+  
+  }
   componentDidMount(){
     this._getMovies();
+    this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          authed: true,
+          loading: false,
+        })
+      } else {
+        this.setState({
+          authed: false,
+          loading: false
+        })
+      }
+    })
+  }
+  componentWillUnmount () {
+    this.removeListener()
   }
    _getMovies=async()=>{
       const movies=await this._callAPI()
@@ -83,22 +95,28 @@ render() {
         <div>
         <Header/>
             <Switch>
-            <Route exact path="/" name='home'>
+            <Route exact path="/MovieList" name='MovieList'>
               <div>
                 <div className={ this.state.movies ? "App" : "App-loading"}>
                   {this.state.movies ? this._renderMovies():'Loading'}
                 </div>
-                <button id='leftButton' onClick={() => this.reRenderingPrevPage()}>
+                <button className="arrowbutton" id='leftButton' onClick={() => this.reRenderingPrevPage()}>
                   <img src={require('./img/left-arrow.png')} alt={'Prev Page'}/>
                 </button>
-                <button id='rightButton' onClick={() => this.reRenderingNextPage()}>
+                <button className="arrowbutton" id='rightButton' onClick={() => this.reRenderingNextPage()}>
                   <img src={require('./img/right-arrow.png')} alt={'Next Page'}/>
                 </button>
               </div>
             </Route>
-            <Route path="/Introduce" name='Introduce'/>
-            <Route path="/board" name='board'/>
-            <Route path="/login" name='login'/>
+            <Route path="/" name='Introduce'>
+              <Introduce/>
+            </Route>
+            <Route path="/board" name='board'>
+              <Board/>
+            </Route>
+            <Route path="/login" name='login'>
+              <LoginModal/>
+            </Route>
             <Route path="/MovieDetail/:id" name='MovieDetail' component={MovieDetail}/>
           </Switch>
         </div>
