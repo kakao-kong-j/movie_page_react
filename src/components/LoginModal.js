@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {googlelogin,login, resetPassword } from '../script/auth'
+import { NavLink, Link } from 'react-router-dom';
 
 function setErrorMsg(error) {
     return {
@@ -55,8 +56,12 @@ class LoginModal extends Component {
             <button type="submit" className="btn btn-secondary">Login</button>
             </form>
             <form>
-              <button type="submit" className="btn btn-primary" onClick={this.googleloginSubmit}>Google Login</button>
-            </form>
+              <button className="btn btn-primary" onClick={this.googleloginSubmit}>Google Login</button>
+              <Link to="/Signup">
+                <button > Create A New Account </button>
+              </Link> 
+              </form>
+
         </div>
       )
     }

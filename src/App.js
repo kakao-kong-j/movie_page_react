@@ -3,6 +3,8 @@ import './css/App.css';
 import Movie from './routes/Movie.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {firebaseAuth} from './script/firebase' 
+
+import Signup from './components/Signup'
 import Header from './components/Header';
 import Introduce from './routes/Introduce';
 import MovieDetail from './routes/MovieDetail';
@@ -95,7 +97,7 @@ render() {
         <div>
         <Header/>
             <Switch>
-            <Route exact path="/MovieList" name='MovieList'>
+            <Route  path="/MovieList" name='MovieList'>
               <div>
                 <div className={ this.state.movies ? "App" : "App-loading"}>
                   {this.state.movies ? this._renderMovies():'Loading'}
@@ -108,7 +110,7 @@ render() {
                 </button>
               </div>
             </Route>
-            <Route path="/" name='Introduce'>
+            <Route exact path="/" name='Introduce'>
               <Introduce/>
             </Route>
             <Route path="/board" name='board'>
@@ -116,6 +118,9 @@ render() {
             </Route>
             <Route path="/login" name='login'>
               <LoginModal/>
+            </Route>
+            <Route path="/Signup" name='Signup'>
+              <Signup/>
             </Route>
             <Route path="/MovieDetail/:id" name='MovieDetail' component={MovieDetail}/>
           </Switch>
