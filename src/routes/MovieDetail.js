@@ -31,10 +31,10 @@ class MovieDetail extends Component {
                 <div>
                 {this.state.movieinfo ? 
                     <div className="MovieDetail">
-                        <div className="MovieDetail__Column">
+                        <div className="MovieDetail__Column" id="Movie_Poster_Column">
                             <MoviePoster poster={this.state.movieinfo.large_cover_image} alt={this.state.movieinfo.title}/>
                         </div>
-                        <div className="MovieDetail__Column">
+                        <div className="MovieDetail__Column" id="Movie_Details_Column">
                             <h1>
                                 {this.state.movieinfo.title}
                             </h1>

@@ -17,15 +17,15 @@
     -webkit-box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133,0.22);
             box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133,0.22);
 }
-#root > div > div:nth-child(2) > div > div > div:nth-child(1){
-    width: 48%;
+#Movie_Poster_Column{
+    width: 46%;
     padding-top: 2%;
     padding-left:5%; 
     position: relative;
     float: left;
 }
-#root > div > div:nth-child(2) > div > div > div:nth-child(2){
-    width: 48%;
+#Movie_Details_Column{
+    width: 46%;
     height: 90%;
     border:5px solid #71b8bd;
     margin: 2%;
@@ -36,8 +36,11 @@
     box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.75);
 }
 .MovieDetail__Column{
-    
-    width:100%;
+    width: 48%;
+    height: 90%;
+    margin: 2%;
+    padding: 2%;
+    position: relative;
     -webkit-box-sizing:border-box;
             box-sizing:border-box;
     -o-text-overflow: ellipsis;
