@@ -20,7 +20,7 @@ class MovieDetail extends Component {
         })    
     }
     _callDetailAPI=()=>{
-      return fetch("https://yts.ag/api/v2/movie_details.json?with_images=true&with_cast=true&movie_id="+this.props.match.params.id)
+      return fetch("https://yts.am/api/v2/movie_details.json?with_images=true&with_cast=true&movie_id="+this.props.match.params.id)
       .then(temp=>temp.json())
       .then(json=> json.data.movie)
       .catch(err=>console.log(err))
