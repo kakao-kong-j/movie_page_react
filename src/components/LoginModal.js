@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {googlelogin,login, resetPassword } from '../script/auth'
 import { NavLink, Link } from 'react-router-dom';
-
+import '../css/LoginModal.css';
 function setErrorMsg(error) {
     return {
         loginMessage: error
@@ -34,7 +34,7 @@ class LoginModal extends Component {
     }
     render () {
       return (
-        <div className="col-sm-6 col-sm-offset-3">
+        <div className="col-sm-6 col-sm-offset-3" id="loginModal">
           <h1> Login </h1>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
@@ -58,7 +58,7 @@ class LoginModal extends Component {
             <form>
               <button className="btn btn-primary" onClick={this.googleloginSubmit}>Google Login</button>
               <Link to="/Signup">
-                <button > Create A New Account </button>
+              <button type="button" class="btn btn-outline-success"> Create A New Account </button>
               </Link> 
               </form>
 

@@ -1,5 +1,5 @@
 .Movie{
-    background-color:white;
+    background-color:rgb(39, 39, 39);
     width:40%;
     display: -ms-flexbox;
     display: flex;
@@ -33,7 +33,7 @@
 .Movie a{
     font-size:20px;
     font-weight: 600;
-    color: black; text-decoration: none;
+    color: white; text-decoration: none;
 }
 
 .Movie .Movie__Genres{

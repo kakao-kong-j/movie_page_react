@@ -1,0 +1,10 @@
+#loginModal{
+    padding:50px;
+    padding-top: 100px;
+    display: -ms-flexbox;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    font-size:14px;
+}

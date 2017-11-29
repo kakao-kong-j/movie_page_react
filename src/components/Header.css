@@ -1,5 +1,5 @@
 .header {
-    background: #00CCF0;
+    background: #3483D2;
     display: table;
     table-layout: fixed;
     width: 100%;
@@ -14,7 +14,7 @@
     display: table-cell;
     color: white;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 .item:hover {
     background: #748ffc;
