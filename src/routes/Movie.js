@@ -12,7 +12,9 @@ class Movie extends Component{
         return(
             <div className="Movie">
                 <div className="Movie__Column">
-                    <MoviePoster poster={this.props.poster} alt={this.props.title}/>
+                    <a href={"./MovieDetail/"+this.props.id}>
+                        <MoviePoster poster={this.props.poster} alt={this.props.title}/>
+                    </a>
                 </div>
                 <div className="Movie__Column">
                 <br/>
