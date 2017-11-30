@@ -6,6 +6,7 @@ body {
   input {
     font-size: 18px;
     outline: 0;
+    padding: 0 20px;
   }
   
   .field {
@@ -19,6 +20,7 @@ body {
   }
   
   .input {
+    padding: 0;
     border: 0;
     box-sizing: border-box;
     margin: 0;
@@ -28,20 +30,22 @@ body {
   
   .clear-button,
   .submit-button {
-    background: transparent;
+    height: 25px;
+    background: white;
     background-position: center center;
     background-repeat: no-repeat;
     border: 0;
     cursor: pointer;
     font-size: 0;
     outline: 0;
-    padding: 0;
+    /* padding: 10px 0 10px 10px; */
     width: 25px;
   }
   
   .clear-button {
     background-image: url(../img/clear.svg);
     background-size: 30%;
+    padding: 0 20px;
     right: 0;
     width: 40px;
   }
@@ -58,32 +62,4 @@ body {
   
   .submit-button:hover {
     opacity: 1;
-  }
-  
-  .suggestions {
-    border: 1px solid #ccc;
-    list-style: none;
-    margin: 0;
-    max-height: 240px;
-    overflow: auto;
-    padding: 0;
-    position: relative;
-    top: -1px;
-    user-select: none;
-  }
-  
-  .suggestion {
-    cursor: pointer;
-    height: 40px;
-    letter-spacing: 0.03em;
-    line-height: 40px;
-    padding: 0 7px 0 10px;
-  }
-  
-  .suggestion--focused {
-    background: #f5f5f5;
-  }
-  
-  .suggestion:last-child {
-    border: none;
   }

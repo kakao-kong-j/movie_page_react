@@ -3,7 +3,7 @@ import './css/App.css';
 import Movie from './routes/Movie.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {firebaseAuth} from './script/firebase' 
-
+import SearchComponent from'./components/SearchComponent';
 import Signup from './components/Signup'
 import Header from './components/Header';
 import Introduce from './routes/Introduce';
@@ -16,7 +16,7 @@ class App extends Component {
   state={
     pages:1,
     authed:false,
-  
+    searchValue:''
   }
   componentDidMount(){
     this._getMovies();
@@ -49,6 +49,13 @@ class App extends Component {
     .then(json=> json.data.movies)
     .catch(err=>console.log(err))
   }
+  _callAPI1=()=>{
+    return fetch("https://yts.am/api/v2/list_movies.json?query_term="+this.state.value)
+    .then(temp=>temp.json())
+    .then(json=> json.data.movies)
+    .catch(err=>console.log(err))
+  }
+  
   _renderMovies=()=>{
     const movies=this.state.movies.map(movie=>{
       return <Movie 
@@ -99,6 +106,7 @@ render() {
             <Switch>
             <Route  path="/MovieList" name='MovieList'>
               <div>
+                <SearchComponent searchValue={this.state.searchValue}/>
                 <div className={ this.state.movies ? "App" : "App-loading"}>
                   {this.state.movies ? this._renderMovies():'Loading'}
                 </div>

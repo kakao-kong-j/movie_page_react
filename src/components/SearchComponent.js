@@ -7,38 +7,42 @@ const defaultProps = {
 class SearchComponent extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            searchValue:''
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.clearSearch = this.clearSearch.bind(this);
     }
-    state={
-        value:''
-    };
+    handleChange(event) {
+        this.setState({searchValue: event.target.value});
+      }
     handleSearch(){
-        this.props.onClear();
-        this.props.onSearch(this.state.value.trim());
+        this.props.onSearch(this.state.searchValue.trim());
+        
     }
     onSearch
     clearSearch() {
         this.setState({
-          value: ''
+            searchValue: ''
         });
-        this.input.focus();
-        this.props.onClear();
     }
    render() {
       return(
          <div id="SearchComponent">
             <input
                 type="text"
-                size='20'
+                size='50'
                 placeholder="Search Movie"
-                value={this.state.value}
+                value={this.state.searchValue}
+                onChange={this.handleChange}
             />
             <button 
                 className="clear-button"
                 onClick={this.clearSearch}
             />
             <button 
-            className="submit-button"
-            onClick={this.handleSearch}
+                className="submit-button"
+                onClick={this.handleSearch}
             />
 
          </div>
