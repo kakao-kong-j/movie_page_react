@@ -12,12 +12,15 @@ import LoginModal from './components/LoginModal';
 import Board from './routes/Board'
 
 class App extends Component {
-
-  state={
+constructor(props){
+  super(props)
+  this.state={
     pages:1,
     authed:false,
     searchValue:''
   }
+  this.handler = this.handler.bind(this);
+}
   componentDidMount(){
     this._getMovies();
     this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
@@ -106,6 +109,11 @@ reRenderingNextPage(){
     a._getMovies();
   }, 0);
 }
+handler(text){
+  this.setState({
+    searchValue:text
+});
+}
 render() {
     return (
       <Router>
@@ -115,7 +123,7 @@ render() {
             <Route  path="/MovieList" name='MovieList'>
               <div>
               <div className={ this.state.movies ? "App" : "App-loading"}>
-              <SearchComponent searchValue={this.state.searchValue}/>
+              <SearchComponent handler = {this.handler} getmovie={this._getMovies}/>
               {this.state.movies ? this._renderMovies():'Loading'}
               </div>
                 <button className="arrowbutton" id='leftButton' onClick={() => this.reRenderingPrevPage()}>

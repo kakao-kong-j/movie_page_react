@@ -20,7 +20,10 @@ class SearchComponent extends Component {
     handleSearch(){
         if(this.state.searchValue)
         {
-            
+            setTimeout(() => {
+                this.props.handler(this.state.searchValue)
+                this.props.getmovie()  
+            }, 0);
         }
     }
     onSearch
