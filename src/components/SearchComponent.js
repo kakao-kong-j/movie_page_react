@@ -11,14 +11,17 @@ class SearchComponent extends Component {
             searchValue:''
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
         this.clearSearch = this.clearSearch.bind(this);
     }
     handleChange(event) {
         this.setState({searchValue: event.target.value});
       }
     handleSearch(){
-        this.props.onSearch(this.state.searchValue.trim());
-        
+        if(this.state.searchValue)
+        {
+            
+        }
     }
     onSearch
     clearSearch() {

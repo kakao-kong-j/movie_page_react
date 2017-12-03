@@ -37,11 +37,19 @@ class App extends Component {
   componentWillUnmount () {
     this.removeListener()
   }
-   _getMovies=async()=>{
+  _getMovies=async()=>{
+    if(this.state.searchValue){
+      const movies=await this._callAPI_search()
+      this.setState({
+        movies
+      })    
+    }
+    else{
       const movies=await this._callAPI()
       this.setState({
         movies
       })    
+    }
   }
   _callAPI=()=>{
     return fetch("https://yts.am/api/v2/list_movies.json?sort_by=like_count&page="+this.state.pages)
@@ -49,8 +57,8 @@ class App extends Component {
     .then(json=> json.data.movies)
     .catch(err=>console.log(err))
   }
-  _callAPI1=()=>{
-    return fetch("https://yts.am/api/v2/list_movies.json?query_term="+this.state.value)
+  _callAPI_search=()=>{
+    return fetch("https://yts.am/api/v2/list_movies.json?query_term="+this.state.searchValue)
     .then(temp=>temp.json())
     .then(json=> json.data.movies)
     .catch(err=>console.log(err))
@@ -106,10 +114,10 @@ render() {
             <Switch>
             <Route  path="/MovieList" name='MovieList'>
               <div>
-                <SearchComponent searchValue={this.state.searchValue}/>
-                <div className={ this.state.movies ? "App" : "App-loading"}>
-                  {this.state.movies ? this._renderMovies():'Loading'}
-                </div>
+              <div className={ this.state.movies ? "App" : "App-loading"}>
+              <SearchComponent searchValue={this.state.searchValue}/>
+              {this.state.movies ? this._renderMovies():'Loading'}
+              </div>
                 <button className="arrowbutton" id='leftButton' onClick={() => this.reRenderingPrevPage()}>
                   <img src={require('./img/left-arrow.png')} alt={'Prev Page'}/>
                 </button>
