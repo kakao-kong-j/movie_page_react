@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import CommentWrite from './CommentWrite';
 import CommentElement from './CommentElement'
 class Comment extends Component {
+    // {this.props.id}
     render() {
         return (
-            <div>
-                {this.props.id}
-                댓글댓글
+            <div id="comment">
+                <CommentWrite/>
+                <CommentElement/>
                 </div>
             );
         }
