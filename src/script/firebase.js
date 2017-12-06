@@ -11,4 +11,5 @@ messagingSenderId: "705678923099"
 firebase.initializeApp(config)
 
 export const ref = firebase.database().ref()
+export const database = firebase.database()
 export const firebaseAuth = firebase.auth

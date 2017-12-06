@@ -50,13 +50,14 @@ class LoginModal extends Component {
               <div className="alert alert-danger" role="alert">
                 <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                 <span className="sr-only">Error:</span>
-                &nbsp;{this.state.loginMessage} <a href="#" onClick={this.resetPassword} className="alert-link">Forgot Password?</a>
+                &nbsp;{this.state.loginMessage} 
               </div>
             }
             <button type="submit" className="btn btn-secondary">Login</button>
             </form>
             <form>
               <button className="btn btn-primary" onClick={this.googleloginSubmit}>Google Login</button>
+              <br/>
               <Link to="/Signup">
               <button type="button" class="btn btn-outline-success"> Create A New Account </button>
               </Link> 

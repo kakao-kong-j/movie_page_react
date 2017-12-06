@@ -36,6 +36,7 @@ class SearchComponent extends Component {
       return(
          <div id="SearchComponent">
             <input
+                className="Search-input"
                 type="text"
                 size='50'
                 placeholder="Search Movie"

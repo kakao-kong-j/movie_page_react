@@ -14,8 +14,9 @@ import MovieList from'./routes/MovieList'
 class App extends Component {
 constructor(props){
   super(props)
+  this.state={authed:false}
 }
-  componentDidMount(){
+  componentWillMount(){
     this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
@@ -30,9 +31,9 @@ constructor(props){
       }
     })
   }
-  componentWillUnmount () {
-    this.removeListener()
-  }
+  // componentWillUnmount () {
+  //   this.removeListener()
+  // }
 render() {
     return (
       <Router>

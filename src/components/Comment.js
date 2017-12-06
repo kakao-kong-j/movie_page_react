@@ -6,8 +6,8 @@ class Comment extends Component {
     render() {
         return (
             <div id="comment">
-                <CommentWrite/>
-                <CommentElement/>
+                <CommentWrite id={this.props.id}/>
+                <CommentElement id={this.props.id}/>
                 </div>
             );
         }

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { auth } from '../script/auth'
+import '../css/Signup.css';
 const propTypes = {
 };
 const defaultProps = {
@@ -15,7 +16,7 @@ class Signup extends Component {
         }
         render () {
           return (
-            <div className="col-sm-6 col-sm-offset-3">
+            <div className="col-sm-6 col-sm-offset-3" id="Signup">
               <h1>Register</h1>
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">

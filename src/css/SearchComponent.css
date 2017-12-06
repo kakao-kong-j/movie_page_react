@@ -1,14 +1,6 @@
-body {
-    font: 100% sans-serif;
-    margin: 15px;
+  #CommentWrite{
+    width:100%;
   }
-  
-  input {
-    font-size: 18px;
-    outline: 0;
-    padding: 0 20px;
-  }
-  
   .field {
     border: 1px solid #ddd;
     display: flex;
@@ -19,13 +11,13 @@ body {
     border-color: #ccc;
   }
   
-  .input {
+  .Search-input {
     padding: 0;
     border: 0;
     box-sizing: border-box;
     margin: 0;
     padding: 10px 0 10px 10px;
-    width: 100%;
+    width: 90%;
   }
   
   .clear-button,
@@ -39,7 +31,7 @@ body {
     font-size: 0;
     outline: 0;
     /* padding: 10px 0 10px 10px; */
-    width: 25px;
+    width: 5%;
   }
   
   .clear-button {
@@ -47,7 +39,6 @@ body {
     background-size: 30%;
     padding: 0 20px;
     right: 0;
-    width: 40px;
   }
   
   .submit-button {
@@ -57,7 +48,6 @@ body {
     border: 1px solid #ddd;
     padding: 0 20px;
     opacity: .8;
-    width: 40px;
   }
   
   .submit-button:hover {

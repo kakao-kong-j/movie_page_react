@@ -9,30 +9,13 @@ constructor(props){
   super(props)
   this.state={
     pages:1,
-    // authed:false,
     searchValue:''
   }
   this.handler = this.handler.bind(this);
 }
   componentDidMount(){
     this._getMovies();
-    // this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.setState({
-    //       authed: true,
-    //       loading: false,
-    //     })
-    //   } else {
-    //     this.setState({
-    //       authed: false,
-    //       loading: false
-    //     })
-    //   }
-    // })
   }
-  // componentWillUnmount () {
-  //   this.removeListener()
-  // }
   _getMovies=async()=>{
     if(this.state.searchValue){
       const movies=await this._callAPI_search()
@@ -110,8 +93,8 @@ handler(text){
 render() {
     return (
           <div>
-          <div className={ this.state.movies ? "App" : "App-loading"}>
           <SearchComponent handler = {this.handler} getmovie={this._getMovies}/>
+          <div className={ this.state.movies ? "App" : "App-loading"}>
           {this.state.movies ? this._renderMovies():'Loading'}
           </div>
             <button className="arrowbutton" id='leftButton' onClick={() => this.reRenderingPrevPage()}>
