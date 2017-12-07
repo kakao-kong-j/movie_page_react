@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import BoardList from '../components/BoardList'
 import {database} from '../script/firebase' 
 const propTypes = {
@@ -10,7 +10,6 @@ class Board extends Component {
         super(props);
         this.state={
             id:'',
-            id:''
         }
     }
     componentWillMount() {

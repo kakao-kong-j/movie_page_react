@@ -10,19 +10,17 @@ class Comment extends Component {
         }
     }
     componentWillMount(){
-        const a= database.ref().child('Comment').child(this.state.id);
-        a.on(
+        const DBref_Comment_id= database.ref().child('Comment').child(this.state.id);
+        DBref_Comment_id.on(
             'value',snap=>{
+                var snapshotValue=""
                 if(snap.val()){
-                    var b=snap.val()
-                }
-                else{
-                    var b=""
+                    snapshotValue=snap.val()
                 }
                 this.setState(
                     {
-                    datas:b,
-                    test:Object.values(b)
+                    datas:snapshotValue,
+                    test:Object.values(snapshotValue)
                 })
             }
         )

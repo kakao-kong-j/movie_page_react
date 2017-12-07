@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Movie from './routes/Movie.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {firebaseAuth} from './script/firebase' 
-import SearchComponent from'./components/SearchComponent';
 import Signup from './components/Signup'
 import Header from './components/Header';
 import Introduce from './routes/Introduce';

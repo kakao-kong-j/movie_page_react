@@ -1,14 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { auth } from '../script/auth'
 import '../css/Signup.css';
-const propTypes = {
-};
-const defaultProps = {
-};
 class Signup extends Component {
-    constructor(props) {
-        super(props);
-    }
         state = { registerError: null }
         handleSubmit = (e) => {
           e.preventDefault()
@@ -41,6 +34,4 @@ class Signup extends Component {
           )
        }
     }   
-Signup.propTypes = propTypes;
-Signup.defaultProps = defaultProps;
 export default Signup;

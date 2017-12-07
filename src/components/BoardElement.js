@@ -1,12 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 const propTypes = {
 };
 const defaultProps = {
 };
 class BoardElement extends Component {
-    constructor(props) {
-        super(props);
-    }
    render() {
       return(
         <div>

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import '../css/CommentWrite.css'
 import {firebaseAuth} from '../script/firebase' 
 import {database} from '../script/firebase' 

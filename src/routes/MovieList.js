@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../css/MovieList.css';
 import Movie from './Movie';
-import {firebaseAuth} from '../script/firebase' 
 import SearchComponent from'../components/SearchComponent';
 
 class MovieList extends Component {
