@@ -8,8 +8,8 @@ function setErrorMsg(error) {
     }
 }
 class LoginModal extends Component {
-    state = { loginMessage: null }
-    handleSubmit = (e) => {
+  state = { loginMessage: null }
+  handleSubmit = (e) => {
       e.preventDefault()
       login(this.email.value, this.pw.value)
         .catch((error) => {
@@ -20,16 +20,12 @@ class LoginModal extends Component {
         e.preventDefault()
         googlelogin()
       }
-    resetPassword = () => {
-      resetPassword(this.email.value)
-        .then(() => this.setState(setErrorMsg(`Password reset email sent to ${this.email.value}.`)))
-        .catch((error) => this.setState(setErrorMsg(`Email address not found.`)))
-    }
+    
     render () {
-      return (
-        <div className="container py-5">
+      return ( 
+        <div className="container py-5" >
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12" id="LoginContainer">
               <div className="row">
                 <div className="col-md-6 mx-auto">
                   <span className="anchor" id="formLogin"></span>
@@ -38,7 +34,7 @@ class LoginModal extends Component {
                       <h3 className="mb-0">Login</h3>
                     </div>
                     <div className="card-body">
-                      <form className="form" autoComplete="off" id="formLogin" onSubmit={this.handleSubmit}>
+                      <form className="form" autoComplete="off" id="formLogin">
                         <div className="form-group">
                           <label>Email</label>
                           <input className="form-control form-control-lg rounded-0" name="uname1" id="uname1" ref={(email) => this.email = email} placeholder="Email"/>
@@ -50,17 +46,15 @@ class LoginModal extends Component {
                         {
                           this.state.loginMessage &&
                           <div className="alert alert-danger" role="alert">
-                            <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                            <span className="sr-only">Error:</span>
-                            &nbsp;{this.state.loginMessage} 
+                              <strong>Error!</strong> {this.state.loginMessage} 
                           </div>
                         }
-                        <button type="button" className="btn btn-success btn-lg float-right">Login</button>
+                        <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Login</button>
                         <br/>
-                        <button className="btn btn-primary" onClick={this.googleloginSubmit}>Google Login</button>
+                        <button className="btn btn-warning btn-block" onClick={this.googleloginSubmit}>Google Login</button>
                         <br/>
                         <Link to="/Signup">
-                          <button type="button" className="btn btn-outline-success"> Create A New Account </button>
+                          <button type="button" className="btn btn-info btn-block"> Create A New Account </button>
                         </Link> 
                       </form>
                     </div>
