@@ -2,35 +2,59 @@ import React, { Component } from 'react';
 import { auth } from '../script/auth'
 import '../css/Signup.css';
 class Signup extends Component {
-        state = { registerError: null }
+  constructor(props){
+    super(props);
+    this.state = { registerError: null }
+    this.handleSubmit=this.handleSubmit.bind(this)
+    this.setErrorMsg=this.setErrorMsg.bind(this)
+  }
+  setErrorMsg(error) {
+    return {
+      registerError: error.message
+    }
+  }
         handleSubmit = (e) => {
           e.preventDefault()
           auth(this.email.value, this.pw.value)
+          .catch(e => this.setState(this.setErrorMsg(e)))
         }
         render () {
           return (
-            <div className="col-sm-6 col-sm-offset-3" id="Signup">
-              <h1>Register</h1>
-              <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                  <label>Email</label>
-                  <input className="form-control" ref={(email) => this.email = email} placeholder="Email"/>
-                </div>
-                <div className="form-group">
-                  <label>Password</label>
-                  <input type="password" className="form-control" placeholder="Password" ref={(pw) => this.pw = pw} />
-                </div>
-                {
-                  this.state.registerError &&
-                  <div className="alert alert-danger" role="alert">
-                    <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span className="sr-only">Error:</span>
-                    &nbsp;{this.state.registerError}
+            <div className="container py-5" >
+            <div className="row">
+              <div className="col-md-12" id="Signup">
+                <div className="row">
+                  <div className="col-md-6 mx-auto">
+                    <span className="anchor" id="formSignup"></span>
+                    <div className="card rounded-0">
+                      <div className="card-header">
+                        <h3 className="mb-0">Signup</h3>
+                      </div>
+                      <div className="card-body">
+                        <form className="form" autoComplete="off" id="formLogin">
+                          <div className="form-group">
+                            <label>Email</label>
+                            <input className="form-control form-control-lg rounded-0" name="uname1" id="uname1" ref={(email) => this.email = email} placeholder="Email"/>
+                          </div>
+                          <div className="form-group">
+                            <label>Password</label>
+                            <input type="password" className="form-control form-control-lg rounded-0" id="pwd1" placeholder="Password" ref={(pw) => this.pw = pw} />
+                          </div>
+                          {
+                            this.state.registerError &&
+                            <div className="alert alert-danger" role="alert">
+                              <strong>Error! </strong>{this.state.registerError}
+                            </div>
+                          }
+                          <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Register</button>
+                        </form>
+                      </div>
+                    </div>
                   </div>
-                }
-                <button type="submit" className="btn btn-primary">Register</button>
-              </form>
+                </div>
+              </div>
             </div>
+          </div>
           )
        }
     }   
