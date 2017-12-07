@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {googlelogin,login, resetPassword } from '../script/auth'
+import {googlelogin,login} from '../script/auth'
 import {Link } from 'react-router-dom';
 import '../css/LoginModal.css';
 function setErrorMsg(error) {
