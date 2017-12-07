@@ -77,7 +77,11 @@ class MovieDetail extends Component {
                             </div>
                         </div>
                         <div className="Comment">
-                            <Comment id={this.state.movieinfo.id}/>
+                            <Comment 
+                            title={this.state.movieinfo.title}
+                            poster={this.state.movieinfo.large_cover_image}
+                            id={this.state.movieinfo.id}
+                            />
                         </div>
                     </div>
                     :'Loading'}

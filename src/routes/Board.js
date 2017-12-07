@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import BoardList from '../components/BoardList'
+import {database} from '../script/firebase' 
 const propTypes = {
 };
 const defaultProps = {
@@ -6,10 +8,39 @@ const defaultProps = {
 class Board extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            id:'',
+            id:''
+        }
+    }
+    componentWillMount() {
+        var this_temp=this
+        database.ref('Comment').once("value").then(function(snapshot){
+            snapshot.forEach((childSnapshot) => {
+               this_temp.setState(prevState=>({
+                    id:[...prevState.id,childSnapshot.key]
+                })
+            )
+            })
+        });
     }
    render() {
       return(
-         <div>Board</div>
+        <div>
+            {
+                this.state.id&&this.state.id.map((id_element,index)=>{
+                    console.log(id_element)
+                return (
+                    <
+                        BoardList 
+                        id={id_element}
+                        key={index}
+                    />
+                )
+                }
+            )
+            }
+        </div>
     );
     }
 }

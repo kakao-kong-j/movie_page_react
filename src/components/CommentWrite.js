@@ -16,24 +16,25 @@ class CommentWrite extends Component {
             CommentValue:'',
             id:this.props.id,
             authed:false,
-            rating:5
+            rating:5,
+            title: this.props.title,
+            poster: this.props.poster
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.writeCommentData = this.writeCommentData.bind(this);
     }
-    writeCommentData(movieid, email,comment,time,rating) {
+    writeCommentData(movieid, email,comment,time,rating,title,poster) {
+        database.ref('Comment/'+movieid).update({
+            title: title,
+            poster: poster
+        });
         database.ref('Comment/' + movieid).push({
           email: email,
           comment:comment,
           rating:rating,
           time:time
         });
-        console.log(this.state.id,
-            this.state.User_email,
-            this.state.CommentValue,
-            this.state.Create_time,
-            this.state.rating)
       }
     handleChange(event) {
         this.setState(
@@ -55,7 +56,9 @@ class CommentWrite extends Component {
                   this.state.User_email,
                   this.state.CommentValue,
                   this.state.Create_time,
-                  this.state.rating
+                  this.state.rating,
+                  this.state.title,
+                  this.state.poster
                 );
             } else {
               this.setState({
