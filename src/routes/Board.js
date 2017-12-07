@@ -29,7 +29,6 @@ class Board extends Component {
         <div>
             {
                 this.state.id&&this.state.id.map((id_element,index)=>{
-                    console.log(id_element)
                 return (
                     <
                         BoardList 
