@@ -4,11 +4,14 @@ import '../css/Header.css';
 
 const Header = () => {
     return (
-        <div className="header">
-            <NavLink exact to="/" className="item" activeClassName="active">Home</NavLink>
-            <NavLink to="/MovieList" className="item" activeClassName="active">MovieList</NavLink>
-            <NavLink to="/board" className="item" activeClassName="active">Board</NavLink>
-            <NavLink to="/login" className="item" activeClassName="active">Login</NavLink>
+        <div>
+            <div className="nav nav-pills flex-column lg flex-sm-row">
+                <NavLink exact to="/" className="px-5 mr-auto"id="logo">  </NavLink>
+                <NavLink exact to="/" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Introduce</NavLink>
+                <NavLink to="/MovieList" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">MovieList</NavLink>
+                <NavLink to="/board" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Board</NavLink>
+                <NavLink to="/login" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Login</NavLink>
+            </div>
         </div>
     );
 };
