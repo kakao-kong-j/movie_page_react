@@ -7,6 +7,7 @@
     "firebase": "^4.6.2",
     "gh-pages": "^1.0.0",
     "react": "^16.0.0",
+    "react-custom-scrollbars-patched": "^4.2.1",
     "react-dom": "^16.0.0",
     "react-lines-ellipsis": "^0.7.3",
     "react-router-dom": "^4.2.2",
