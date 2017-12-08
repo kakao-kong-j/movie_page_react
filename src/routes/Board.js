@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BoardList from '../components/BoardList'
 import {database} from '../script/firebase' 
+import { Scrollbars } from 'react-custom-scrollbars';
 const propTypes = {
 };
 const defaultProps = {
@@ -26,18 +27,22 @@ class Board extends Component {
    render() {
       return(
         <div>
+        <Scrollbars style={{height: 800 }}>
             {
                 this.state.id&&this.state.id.map((id_element,index)=>{
                 return (
-                    <
-                        BoardList 
-                        id={id_element}
-                        key={index}
-                    />
+                    
+                        <
+                            BoardList 
+                            id={id_element}
+                            key={index}
+                        />
+                    
                 )
                 }
             )
             }
+            </Scrollbars>
         </div>
     );
     }

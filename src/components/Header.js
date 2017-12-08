@@ -5,7 +5,7 @@ import '../css/Header.css';
 const Header = () => {
     return (
         <div>
-            <div className="nav nav-pills flex-column lg flex-sm-row">
+            <div className="nav nav-pills flex-column lg flex-sm-row bg-dark">
                 <NavLink exact to="/" className="px-5 mr-auto"id="logo">  </NavLink>
                 <NavLink exact to="/" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Introduce</NavLink>
                 <NavLink to="/MovieList" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">MovieList</NavLink>

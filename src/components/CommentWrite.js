@@ -45,7 +45,7 @@ class CommentWrite extends Component {
       }
       handleSubmit(){
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
-            if (user) {
+            if (user||this.state.CommentValue) {
               this.setState({
                 authed: true,
                 User_email:user.email,
