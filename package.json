@@ -6,6 +6,7 @@
     "bootstrap": "^4.0.0-beta.2",
     "firebase": "^4.6.2",
     "gh-pages": "^1.0.0",
+    "rc-rate": "^2.3.0",
     "react": "^16.0.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-custom-scrollbars-patched": "^4.2.1",

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Rate from 'rc-rate';
 const propTypes = {
 };
 const defaultProps = {
@@ -15,6 +16,11 @@ class BoardElement extends Component {
             rating:this.props.rating,
             value:this.props.commentvalue
         }
+    }
+    componentWillMount(){
+        var c=new Date(this.state.time)
+        this.setState({
+            time:c.toLocaleString()})
     }
    render() {
       return(
@@ -34,6 +40,11 @@ class BoardElement extends Component {
                                 <div className="row small comment-meta">
                                     <div className="col text-left">
                                         {this.state.email}
+                                        <Rate
+                                        defaultValue={this.state.rating}
+                                        value={this.state.rating}
+                                        allowHalf
+                                      />
                                     </div>
                                     <div className="col text-right">
                                         {this.state.time}

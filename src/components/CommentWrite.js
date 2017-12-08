@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/CommentWrite.css'
 import {firebaseAuth} from '../script/firebase' 
 import {database} from '../script/firebase' 
-// var database = firebase.database();
+import Rate from 'rc-rate';
 const propTypes = {
 };
 const defaultProps = {
@@ -23,6 +23,7 @@ class CommentWrite extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.writeCommentData = this.writeCommentData.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
     writeCommentData(movieid, email,comment,time,rating,title,poster) {
         database.ref('Comment/'+movieid).update({
@@ -49,7 +50,7 @@ class CommentWrite extends Component {
               this.setState({
                 authed: true,
                 User_email:user.email,
-                Create_time:Date.now()*1000
+                Create_time:Date.now()
               })
               this.writeCommentData(
                   this.state.id,
@@ -68,6 +69,12 @@ class CommentWrite extends Component {
           })
          
       }
+      onChange(starRating){
+        console.log('star:',starRating)
+        this.setState({
+            rating:starRating
+        })
+      }
    render() {
       return(
         <div id="CommentWrite">
@@ -77,10 +84,18 @@ class CommentWrite extends Component {
             value={this.state.CommentValue}
             onChange={this.handleChange}
         />
+        <div style={{ margin: 100 }}>
+        <Rate
+          defaultValue={5}
+          onChange={this.onChange}
+          allowHalf
+        />
+        </div>
         <button 
             className="comment-submit-button"
             onClick={this.handleSubmit}
         >
+
             Submit
         </button>
         </div>
