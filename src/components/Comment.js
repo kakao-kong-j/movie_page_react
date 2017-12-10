@@ -7,7 +7,8 @@ class Comment extends Component {
     constructor(props) {
         super(props);
         this.state={
-            id:this.props.id
+            id:this.props.id,
+            authed:true
         }
         this.authCheck=this.authCheck.bind(this)
         
@@ -41,30 +42,25 @@ class Comment extends Component {
             }
           })
     }
-    componentWillUnmount () {
-        this.removeListener()
-      }
 
-     authCheck(){
+
+    authCheck(){
     if(this.state.authed)
     {
-      return   (<CommentWrite 
-      id={this.props.id}
-      poster={this.props.poster}
-      title={this.props.title}
-  />)
+        return   (
+            <CommentWrite 
+                id={this.props.id}
+                poster={this.props.poster}
+                title={this.props.title}
+            />
+        )
     }
-    else{
-      return (<div></div>)
-        }
-  }
+    }
     render() {
         return (
             <div id="comment">
             {
-               this.authCheck
-                
-
+               this.authCheck()
             }
                 {
                     this.state.test&&this.state.test.map((test1,index)=> 

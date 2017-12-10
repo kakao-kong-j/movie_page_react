@@ -12,6 +12,9 @@ class LoginModal extends Component {
   handleSubmit = (e) => {
       e.preventDefault()
       login(this.email.value, this.pw.value)
+      .then(()=>{
+        console.log('it okay')
+      })
         .catch((error) => {
             this.setState(setErrorMsg('Invalid username/password.'))
           })

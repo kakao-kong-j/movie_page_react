@@ -34,13 +34,17 @@ constructor(props){
   componentWillUnmount () {
     this.removeListener()
   }
-  authCheck(){
+  authCheck(islogin){
     if(this.state.authed)
     {
       return  <Propile/>
     }
     else{
-      return <LoginModal/>
+      if(islogin){
+      return <LoginModal/>}
+      else{
+        <Signup/>
+      }
         }
   }
   render() {
@@ -59,10 +63,10 @@ constructor(props){
       <Board/>
       </Route>
       <Route path="/login" name='login'>
-      {this.authCheck(<propile/>,<LoginModal/>)}
+      {this.authCheck(true)}
       </Route>
       <Route path="/Signup" name='Signup'>
-              <Signup/>
+      {this.authCheck(false)}
             </Route>
             <Route path="/MovieDetail/:id" name='MovieDetail' component={MovieDetail}/>
           </Switch>
