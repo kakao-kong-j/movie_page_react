@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import CommentWrite from './CommentWrite';
 import CommentElement from './CommentElement'
 import {database} from '../script/firebase' 
+import {firebaseAuth}from '../script/firebase'
 class Comment extends Component {
     constructor(props) {
         super(props);
         this.state={
             id:this.props.id
         }
+        this.authCheck=this.authCheck.bind(this)
+        
     }
     componentWillMount(){
         const DBref_Comment_id= database.ref().child('Comment').child(this.state.id);
@@ -24,15 +27,45 @@ class Comment extends Component {
                 })
             }
         )
+        this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
+            if (user) {
+              this.setState({
+                authed: true,
+                loading: false,
+              })
+            } else {
+              this.setState({
+                authed: false,
+                loading: false
+              })
+            }
+          })
     }
+    componentWillUnmount () {
+        this.removeListener()
+      }
+
+     authCheck(){
+    if(this.state.authed)
+    {
+      return   (<CommentWrite 
+      id={this.props.id}
+      poster={this.props.poster}
+      title={this.props.title}
+  />)
+    }
+    else{
+      return (<div></div>)
+        }
+  }
     render() {
         return (
             <div id="comment">
-                <CommentWrite 
-                    id={this.props.id}
-                    poster={this.props.poster}
-                    title={this.props.title}
-                />
+            {
+               this.authCheck
+                
+
+            }
                 {
                     this.state.test&&this.state.test.map((test1,index)=> 
                         {

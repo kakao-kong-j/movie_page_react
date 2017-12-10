@@ -3,6 +3,7 @@ import '../css/CommentWrite.css'
 import {firebaseAuth} from '../script/firebase' 
 import {database} from '../script/firebase' 
 import Rate from 'rc-rate';
+
 const propTypes = {
 };
 const defaultProps = {
@@ -24,6 +25,7 @@ class CommentWrite extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.writeCommentData = this.writeCommentData.bind(this);
         this.onChange = this.onChange.bind(this);
+        
     }
     writeCommentData(movieid, email,comment,time,rating,title,poster) {
         database.ref('Comment/'+movieid).update({

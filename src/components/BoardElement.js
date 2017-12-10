@@ -40,11 +40,8 @@ class BoardElement extends Component {
                                 <div className="row small comment-meta">
                                     <div className="col text-left">
                                         {this.state.email}
-                                        <Rate
-                                        defaultValue={this.state.rating}
-                                        value={this.state.rating}
-                                        allowHalf
-                                      />
+                                        Rating:
+                                        {this.state.rating}
                                     </div>
                                     <div className="col text-right">
                                         {this.state.time}
