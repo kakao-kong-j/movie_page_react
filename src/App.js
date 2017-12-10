@@ -10,6 +10,7 @@ import LoginModal from './components/LoginModal';
 import Board from './routes/Board'
 import MovieList from'./routes/MovieList'
 import Propile from './components/Propile'
+import NoMatch from './routes/NoMatch'
 class App extends Component {
 constructor(props){
   super(props)
@@ -53,16 +54,11 @@ constructor(props){
       <div>
       <Header/>
       <Switch>
-      <Route  path="/MovieList" name='MovieList'>
-      <MovieList/>
-      </Route>
-      <Route exact path="/" name='Introduce'>
-      <Introduce/>
-      </Route>
-      <Route path="/board" name='board'>
-      <Board/>
-      </Route>
-      <Route path="/login" name='login'>
+      <Route  path="/MovieList" name='MovieList' component={MovieList}/>
+      <Route exact path="/" name='Introduce' component={Introduce}/>
+      <Route path="/board" name='board' component={Board}/>
+      <Route component={NoMatch}/>
+      <Route path="/login" name='login' >
       {this.authCheck(true)}
       </Route>
       <Route path="/Signup" name='Signup'>
