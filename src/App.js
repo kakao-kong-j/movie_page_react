@@ -38,13 +38,13 @@ constructor(props){
   authCheck(islogin){
     if(this.state.authed)
     {
-      return  <Propile/>
+      return  Propile
     }
     else{
       if(islogin){
-      return <LoginModal/>}
+      return LoginModal}
       else{
-        <Signup/>
+        return Signup
       }
         }
   }
@@ -57,16 +57,12 @@ constructor(props){
       <Route  path="/MovieList" name='MovieList' component={MovieList}/>
       <Route exact path="/" name='Introduce' component={Introduce}/>
       <Route path="/board" name='board' component={Board}/>
+      <Route path="/login" name='login'component={this.authCheck(true)}/>
+      <Route path="/Signup" name='Signup' component={this.authCheck(false)}/>
+      <Route path="/MovieDetail/:id" name='MovieDetail' component={MovieDetail}/>
       <Route component={NoMatch}/>
-      <Route path="/login" name='login' >
-      {this.authCheck(true)}
-      </Route>
-      <Route path="/Signup" name='Signup'>
-      {this.authCheck(false)}
-            </Route>
-            <Route path="/MovieDetail/:id" name='MovieDetail' component={MovieDetail}/>
-          </Switch>
-        </div>
+      </Switch>
+      </div>
       </Router>
     );
   }
