@@ -26,17 +26,21 @@ class Header extends Component {
             }
           })  
     }
-    
+    logout(){
+        firebaseAuth().signOut()
+    }
     authCheck()
     {
     if(this.state.authed)
     {
         return   (
-            <NavLink to="/login" className="flex-sm-fill text-sm-center nav-link px-8 float-right align-self-center" activeClassName="nav-link active">Profile</NavLink>
+            <NavLink to="/Logout" className="flex-sm-fill text-sm-center nav-link px-8 float-right align-self-center" activeClassName="nav-link active">Logout</NavLink>
         )
     }
-    else{
-        <NavLink to="/login" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Login</NavLink>
+        else{
+            return(
+            <NavLink to="/login" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Login</NavLink>
+            )
     }
 }
    render() {
@@ -48,6 +52,7 @@ class Header extends Component {
                 <NavLink to="/MovieList" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">MovieList</NavLink>
                 <NavLink to="/board" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Board</NavLink>
                 {this.authCheck()}
+
             </div>
         </div>
     );

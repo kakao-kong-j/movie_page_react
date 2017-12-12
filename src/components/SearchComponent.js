@@ -34,9 +34,9 @@ class SearchComponent extends Component {
     }
    render() {
       return(
-         <div id="SearchComponent">
+         <div className="input-group input-group-lg" id="SearchComponent">
             <input
-                className="Search-input"
+                className="form-control form-control-lg"
                 type="text"
                 size='50'
                 placeholder="Search Movie"
@@ -44,13 +44,19 @@ class SearchComponent extends Component {
                 onChange={this.handleChange}
             />
             <button 
-                className="clear-button"
+                className="input-group-addon"
+                id="Clear-button"
                 onClick={this.clearSearch}
-            />
+            >
+                Clear
+            </button>
             <button 
-                className="submit-button"
+                className="input-group-addon"
+                id="Submit-button"
                 onClick={this.handleSearch}
-            />
+            >
+                Search
+            </button>
 
          </div>
     );

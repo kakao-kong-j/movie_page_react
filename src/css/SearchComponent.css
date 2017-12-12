@@ -7,49 +7,25 @@
     position: relative;
   }
   
-  .field--focused {
-    border-color: #ccc;
-  }
-  
-  .Search-input {
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 10px 0 10px 10px;
-    width: 90%;
-  }
-  
-  .clear-button,
-  .submit-button {
-    height: 25px;
-    background: white;
+  #Submit-button {
+    opacity: 0.5;
+    /* background-image: url(../img/search.svg);
     background-position: center center;
-    background-repeat: no-repeat;
-    border: 0;
-    cursor: pointer;
-    font-size: 0;
-    outline: 0;
-    /* padding: 10px 0 10px 10px; */
-    width: 5%;
+    background-repeat: no-repeat; */
+  }
+
+  #Clear-button {
+    opacity: 0.5;
+    /* background-image: url(../img/clear.svg);
+    background-position: center center;
+    background-repeat: no-repeat; */
   }
   
-  .clear-button {
-    background-image: url(../img/clear.svg);
-    background-size: 30%;
-    padding: 0 20px;
-    right: 0;
-  }
   
-  .submit-button {
-    background-color: #e5e5e5;
-    background-image: url(../img/search.svg);
-    background-size: 35%;
-    border: 1px solid #ddd;
-    padding: 0 20px;
-    opacity: .8;
-  }
   
-  .submit-button:hover {
+  #Submit-button:hover {
+    opacity: 1;
+  }
+  #Clear-button:hover {
     opacity: 1;
   }
