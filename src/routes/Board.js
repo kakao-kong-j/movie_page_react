@@ -14,7 +14,7 @@ class Board extends Component {
         }
     }
     componentWillMount() {
-        var this_temp=this
+        let this_temp=this
         database.ref('Comment').once("value").then(function(snapshot){
             snapshot.forEach((childSnapshot) => {
                this_temp.setState(prevState=>({

@@ -6,14 +6,14 @@
     "bootstrap": "^4.0.0-beta.2",
     "firebase": "^4.6.2",
     "gh-pages": "^1.0.0",
-    "rc-rate": "^2.3.0",
     "react": "^16.0.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-custom-scrollbars-patched": "^4.2.1",
     "react-dom": "^16.0.0",
     "react-lines-ellipsis": "^0.7.3",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "react-stars": "^2.2.5"
   },
   "scripts": {
     "start": "react-scripts start",

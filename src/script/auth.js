@@ -3,7 +3,7 @@ import firebase from 'firebase'
 
 
 export function googlelogin (email, pw) {
-  var provider = new firebase.auth.GoogleAuthProvider();
+  let provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/plus.login');
   firebase.auth().signInWithPopup(provider);
 }

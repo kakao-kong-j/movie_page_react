@@ -16,15 +16,17 @@ class BoardList extends Component {
         const DBref_Comment_id= database.ref().child('Comment').child(this.state.id);
         DBref_Comment_id.on(
             'value',snap=>{
-                var snapshotValue =""
+                let snapshotValue =""
                 if(snap.val()){
                     snapshotValue=snap.val()
                 }
                 this.setState(
                     {
-                    datas:snapshotValue,
-                    test:Object.values(snapshotValue)
+                    movie_datas:snapshotValue,
+                    comment_datas:Object.values(snapshotValue),
+                    comment_key:Object.keys(snapshotValue)
                 })
+
             }
         )
     }
@@ -32,18 +34,20 @@ class BoardList extends Component {
       return(
          <div>
             {
-                this.state.test&&this.state.test.map((test1,index)=> 
+                this.state.comment_datas&&this.state.comment_datas.map((datas,index)=> 
                     {
                         return(
                             <BoardElement 
-                            title={this.state.datas.title}
-                            poster={this.state.datas.poster}
+                            title={this.state.movie_datas.title}
+                            poster={this.state.movie_datas.poster}
                             id={this.state.id}
-                            email={test1.email} 
-                            time={test1.time} 
-                            commentvalue={test1.comment} 
-                            rating={test1.rating} 
-                            key={index}/>
+                            email={datas.email} 
+                            time={datas.time} 
+                            commentvalue={datas.comment} 
+                            rating={datas.rating} 
+                            key={index}
+                            commentid={this.state.comment_key[index]}
+                            />
                         );
                     }
                 )

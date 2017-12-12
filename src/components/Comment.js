@@ -17,7 +17,7 @@ class Comment extends Component {
         const DBref_Comment_id= database.ref().child('Comment').child(this.state.id);
         DBref_Comment_id.on(
             'value',snap=>{
-                var snapshotValue=""
+                let snapshotValue=""
                 if(snap.val()){
                     snapshotValue=snap.val()
                 }

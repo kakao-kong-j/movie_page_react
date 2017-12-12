@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/CommentWrite.css'
 import {firebaseAuth} from '../script/firebase' 
 import {database} from '../script/firebase' 
-import Rate from 'rc-rate';
+import Rate from 'react-stars';
 
 const propTypes = {
 };
@@ -72,7 +72,6 @@ class CommentWrite extends Component {
          
       }
       onChange(starRating){
-        console.log('star:',starRating)
         this.setState({
             rating:starRating
         })
@@ -88,9 +87,9 @@ class CommentWrite extends Component {
         />
         <div style={{ margin: 100 }}>
         <Rate
-          defaultValue={5}
-          onChange={this.onChange}
-          allowHalf
+            count={5}
+            value={this.state.rating}
+            onChange={this.onChange}
         />
         </div>
         <button 
