@@ -34,8 +34,13 @@ class BoardElement extends Component {
                                 </a>
                             </div>
                             <div className="comment-content col-md-11 col-sm-10">
-                                <div className="small comment-meta">
-                                    {this.state.title}
+                                <div className="row small comment-meta">
+                                    <div className="col text-left">
+                                        {this.state.title}
+                                    </div>
+                                    <div className="col text-right text-danger">
+                                        Delete
+                                    </div>
                                 </div>
                                 <div className="row small comment-meta">
                                     <div className="col text-left">

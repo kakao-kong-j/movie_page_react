@@ -1,28 +1,13 @@
   #CommentWrite{
     width:100%;
   }
-  .field {
-    border: 1px solid #ddd;
-    display: flex;
-    position: relative;
-  }
-  
   #Submit-button {
     opacity: 0.5;
-    /* background-image: url(../img/search.svg);
-    background-position: center center;
-    background-repeat: no-repeat; */
   }
 
   #Clear-button {
     opacity: 0.5;
-    /* background-image: url(../img/clear.svg);
-    background-position: center center;
-    background-repeat: no-repeat; */
   }
-  
-  
-  
   #Submit-button:hover {
     opacity: 1;
   }
