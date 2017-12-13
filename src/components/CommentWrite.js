@@ -78,26 +78,28 @@ class CommentWrite extends Component {
       }
    render() {
       return(
-        <div id="CommentWrite">
-        <input
-            id="commentwriteinput"
+        <div className="input-group input-group-lg justify-content-center" id="CommentWrite">
+        <textarea 
+            className="col-lg-9" 
+            rows="5" 
+            id="commentwriteinput" 
             type="text"
             value={this.state.CommentValue}
             onChange={this.handleChange}
         />
-        <div style={{ margin: 100 }}>
-        <Rate
-            count={5}
-            value={this.state.rating}
-            onChange={this.onChange}
-        />
+        <div className="input-group-addon col-lg-2 justify-content-center">
+            <Rate
+                size={30}
+                count={5}
+                value={this.state.rating}
+                onChange={this.onChange}
+            />
         </div>
         <button 
-            className="comment-submit-button"
+            className="input-group-addon col-lg-1 text-center"
             onClick={this.handleSubmit}
-        >
-
-            Submit
+            >
+            send
         </button>
         </div>
     );
