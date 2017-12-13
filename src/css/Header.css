@@ -1,7 +1,7 @@
 #logo {
-    background-image: url(../img/Logo.png);
-    background-size: 150%;
-    background-position: center center;
+    background-image: url(../img/MovieInfo.png);
+    background-size: 100%;
+    background-position: right top;
     background-repeat: no-repeat;
     height: 100px;
   }
