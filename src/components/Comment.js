@@ -23,11 +23,13 @@ class Comment extends Component {
                 }
                 this.setState(
                     {
-                    datas:snapshotValue,
-                    test:Object.values(snapshotValue)
-                })
-            }
-        )
+                        comment_datas:Object.values(snapshotValue),
+                        comment_key:Object.keys(snapshotValue)
+                    })
+    
+                }
+            )
+        
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
             if (user) {
               this.setState({
@@ -63,16 +65,18 @@ class Comment extends Component {
                this.authCheck()
             }
                 {
-                    this.state.test&&this.state.test.map((test1,index)=> 
+                    this.state.comment_datas&&this.state.comment_datas.map((datas,index)=> 
                         {
                             return(
                                 <CommentElement 
                                 id={this.state.id}
-                                email={test1.email} 
-                                time={test1.time} 
-                                commentvalue={test1.comment} 
-                                rating={test1.rating} 
-                                key={index}/>
+                                email={datas.email} 
+                                time={datas.time} 
+                                commentvalue={datas.comment} 
+                                rating={datas.rating} 
+                                key={index}
+                                commentid={this.state.comment_key[index]}
+                                />
                             );
                         }
                     )

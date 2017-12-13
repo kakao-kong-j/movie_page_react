@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Rate from 'react-stars';
 import img from "../img/man.png";
+import {database} from '../script/firebase' 
+import {firebaseAuth}from '../script/firebase'
 class CommentElemnet extends Component {
     constructor(props){
         super(props)
@@ -8,10 +10,25 @@ class CommentElemnet extends Component {
         this.state={
             time:time_unix.toLocaleString()
         }
+        this.deleteComment=this.deleteComment.bind(this)
     }
     
-    componentWillMount(){
-        
+    deleteComment(){
+        this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
+            if(user.email==this.props.email){
+                let DBref_Comment_id = database.ref().child('Comment').child(this.props.id).child(this.props.commentid);
+                DBref_Comment_id.remove()
+                .then(function() {
+                    console.log("Remove succeeded.")
+                })
+                .catch(function(error) {
+                    console.log("Remove failed: " + error.message)
+                });
+                this.setState({
+                    value:''
+                })
+            }
+        })  
     }
     render() {
         return (
@@ -23,20 +40,32 @@ class CommentElemnet extends Component {
                     </div>
                     <div className="comment-content col-md-11 col-sm-10">
                         <div className="row small comment-meta">
-                            <div className="col text-left">
+                            <div className="col text-left align-self-center">
                                 {this.props.email}
-                                Rating:
-                                <Rate
-                                    count={5}
-                                    value={this.props.rating}
-                                    color2= '#ff9900'
-                                    edit={false}
-                                />
                             </div>
-                            <div className="col text-right">
+                            <div className="col text-right align-self-center">
                                 {this.state.time}
                             </div>
+                            <div className="col text-right">
+                            <button type="button" className="btn btn-danger" onClick={this.deleteComment}>
+                                Delete
+                            </button>
                         </div>
+                    </div>
+                    <div className="d-flex justify-content-start">
+                        <div className="align-self-center p-1 small">
+                            Rating:
+                        </div>
+                        <div className="p-2">
+                            <Rate
+                                size={15}
+                                count={5}
+                                value={this.props.rating}
+                                color2= '#ff9900'
+                                edit={false}
+                            />
+                        </div>
+                    </div>
                         <div className="comment-body">
                             <p>
                                 {this.props.commentvalue}

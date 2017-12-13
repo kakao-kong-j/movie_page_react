@@ -57,7 +57,7 @@ class BoardElement extends Component {
                             </div>
                             <div className="comment-content col-md-11 col-sm-10">
                                 <div className="row small comment-meta">
-                                    <div className="col text-left">
+                                    <div className="col text-left font-weight-bold">
                                         {this.state.title}
                                     </div>
                                     <div className="col text-right">
@@ -68,25 +68,31 @@ class BoardElement extends Component {
                                 </div>
                                 <div className="row small comment-meta">
                                     <div className="col text-left">
-                                        {this.state.email}
-                                        Rating:
-                                        <Rate
-                                            count={5}
-                                            value={this.state.rating}
-                                            color2= '#ff9900'
-                                            edit={false}
-                                        />
+                                        {this.props.email}
                                     </div>
                                     <div className="col text-right">
                                         {this.state.time}
                                     </div>
                                 </div>
-                                <div className="comment-body">
-                                    <p>
-                                        {this.state.value}
-                                    </p>
+                                <div className="d-flex">
+                                <div className="align-self-center p-1 text-left small">
+                                    Rating:
                                 </div>
-                            </div>
+                                <div className="p-2">
+                                    <Rate
+                                        count={5}
+                                        value={this.props.rating}
+                                        color2= '#ff9900'
+                                        edit={false}
+                                    />
+                                </div>
+                                </div>
+                                <div className="comment-body">
+                                <p>
+                                {this.state.value}
+                                </p>
+                                </div>
+                                </div>
                             </div>
         }
         </div>
@@ -96,3 +102,5 @@ class BoardElement extends Component {
 BoardElement.propTypes = propTypes;
 BoardElement.defaultProps = defaultProps;
 export default BoardElement;
+
+
