@@ -3,6 +3,7 @@ import Rate from 'react-stars';
 import img from "../img/man.png";
 import {database} from '../script/firebase' 
 import {firebaseAuth}from '../script/firebase'
+import '../css/CommentElement.css'
 class CommentElemnet extends Component {
     constructor(props){
         super(props)
@@ -34,7 +35,7 @@ class CommentElemnet extends Component {
         return (
             <div>
             {this.props.commentvalue&&
-                <div className="comment mb-2 row bg-light border border-info w-100">
+                <div id="commentElement" className="comment col-lg-11mb-2 row bg-light border border-info w-100">
                     <div className="comment-avatar col-md-1 col-sm-2 text-center pr-1">
                         <img className="mx-auto img-fluid" src={img} alt="Profile img"/>
                     </div>
