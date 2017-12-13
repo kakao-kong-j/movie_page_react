@@ -15,7 +15,7 @@ class CommentElemnet extends Component {
     
     deleteComment(){
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
-            if(user.email==this.props.email){
+            if(user.email===this.props.email){
                 let DBref_Comment_id = database.ref().child('Comment').child(this.props.id).child(this.props.commentid);
                 DBref_Comment_id.remove()
                 .then(function() {
@@ -36,7 +36,7 @@ class CommentElemnet extends Component {
             {this.props.commentvalue&&
                 <div className="comment mb-2 row bg-light border border-info w-100">
                     <div className="comment-avatar col-md-1 col-sm-2 text-center pr-1">
-                        <img className="mx-auto img-fluid" src={img}/>
+                        <img className="mx-auto img-fluid" src={img} alt="Profile img"/>
                     </div>
                     <div className="comment-content col-md-11 col-sm-10">
                         <div className="row small comment-meta">

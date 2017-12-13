@@ -29,7 +29,7 @@ class BoardElement extends Component {
     }
     deleteComment(){
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
-            if(user.email==this.state.email){
+            if(user.email===this.state.email){
                 let DBref_Comment_id = database.ref().child('Comment').child(this.state.id).child(this.state.commentid);
                 DBref_Comment_id.remove()
                 .then(function() {

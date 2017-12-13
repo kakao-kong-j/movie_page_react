@@ -1,10 +1,10 @@
 import React from 'react';
 import '../css/Introduce.css'
-// import SearchComponent from '../components/SearchComponent'
+import img from '../img/Logo.png'
 const Introduce = () => {
     return (
         <div>
-        
+            <img src={img} alt="Logo"/>
         </div>
     );
 };
