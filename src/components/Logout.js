@@ -1,5 +1,5 @@
 import {firebaseAuth} from '../script/firebase'
-import React, { Component, PropTypes } from 'react';
+import React, { Component} from 'react';
 const propTypes = {
 };
 const defaultProps = {
