@@ -1,10 +1,10 @@
 # MovieInfo
 
-> This service is now available at http://www.movieinfo.gq 
+> This service is now available at http://www.movieinfo.gq
 
 ## About
 
-> MovieInfo is a platform that allows users to easily view information based on movie information provided by 'YTS.am'.
+> MovieInfo is a platform that allows users to easily view information based on movie information provided by YTS.am'.
 
 ## Stack
 
@@ -40,7 +40,7 @@ Clone this project from the github repository.
 
 > https://github.com/jinhokong/movie_page_react.git
 
-Install packages in both backend and frontend directory 
+Install packages in both backend and frontend directory
 using following command:
 
 > npm install
@@ -52,4 +52,5 @@ Running Backend Development Server
 ## Feedback
 
 We are always waiting for feedback and feedback.
-> * Developer Email: tpdleps@gmail.com
+
+* Developer Email: tpdleps@gmail.com
