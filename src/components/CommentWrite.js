@@ -78,7 +78,11 @@ class CommentWrite extends Component {
       }
    render() {
       return(
+<<<<<<< HEAD
         <div className="input-group input-group-lg " id="CommentWrite">
+=======
+        <div className="input-group input-group-lg justify-content-center" id="CommentWrite">
+>>>>>>> 56c24df5b4bd2e83f3182754c2630fb0d74f15e2
         <textarea 
             className="col-lg-9" 
             rows="5" 
