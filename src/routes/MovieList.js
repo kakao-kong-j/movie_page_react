@@ -92,7 +92,7 @@ handler(text){
 }
 pagehandler()
 {
-  if(this.state.pages==1){
+  if(this.state.pages===1){
     return(
     <nav aria-label="...">
     <ul className="pagination pagination-lg justify-content-center">
@@ -134,10 +134,12 @@ render() {
           <div>
           <SearchComponent handler = {this.handler} getmovie={this._getMovies}/>
           <div className={ this.state.movies ? "App" : "App-loading"}>
-          {this.state.movies ? this._renderMovies():'Loading'}
+          {
+            this.state.movies ? this._renderMovies():'Loading'
+          }
           </div>
             <div>
-              {this.pagehandler()}
+              {this.state.movies ? this.pagehandler():'Loading'}
             </div>
             
           </div>
