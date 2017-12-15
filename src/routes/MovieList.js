@@ -11,6 +11,7 @@ constructor(props){
     searchValue:''
   }
   this.handler = this.handler.bind(this);
+  this.pagehandler = this.pagehandler.bind(this);
 }
   componentDidMount(){
     this._getMovies();
@@ -89,6 +90,45 @@ handler(text){
     searchValue:text
 });
 }
+pagehandler()
+{
+  if(this.state.pages==1){
+    return(
+    <nav aria-label="...">
+    <ul class="pagination pagination-lg justify-content-center">
+      <li class="page-item disabled" onClick={() => this.reRenderingPrevPage()}>
+        <a class="page-link" >Previous</a>
+      </li>
+      <li class="page-item active">
+        <a class="page-link" >{this.state.pages} <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="page-item" onClick={() => this.reRenderingNextPage()}><a class="page-link" >{this.state.pages+1}</a></li>
+      <li class="page-item" onClick={() => this.reRenderingNextPage()}>
+        <a class="page-link">Next</a>
+      </li>
+    </ul>
+  </nav>)
+  }
+  else{
+    return(
+    <nav aria-label="...">
+    <ul class="pagination pagination-lg justify-content-center">
+      <li class="page-item" onClick={() => this.reRenderingPrevPage()}>
+        <a class="page-link" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item" onClick={() => this.reRenderingPrevPage()}><a class="page-link" >{this.state.pages-1}</a></li>
+      <li class="page-item active">
+        <a class="page-link">{this.state.pages} <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="page-item" onClick={() => this.reRenderingNextPage()}><a class="page-link">{this.state.pages+1}</a></li>
+      <li class="page-item" onClick={() => this.reRenderingNextPage()}>
+        <a class="page-link">Next</a>
+      </li>
+    </ul>
+  </nav>
+    )
+  }
+}
 render() {
     return (
           <div>
@@ -96,12 +136,10 @@ render() {
           <div className={ this.state.movies ? "App" : "App-loading"}>
           {this.state.movies ? this._renderMovies():'Loading'}
           </div>
-            <button className="arrowbutton" id='leftButton' onClick={() => this.reRenderingPrevPage()}>
-              <img src={require('../img/left-arrow.png')} alt={'Prev Page'}/>
-            </button>
-            <button className="arrowbutton" id='rightButton' onClick={() => this.reRenderingNextPage()}>
-              <img src={require('../img/right-arrow.png')} alt={'Next Page'}/>
-            </button>
+            <div>
+              {this.pagehandler()}
+            </div>
+            
           </div>
     );
   }
