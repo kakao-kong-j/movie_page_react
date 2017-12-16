@@ -13,9 +13,16 @@ class SearchComponent extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.clearSearch = this.clearSearch.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
     handleChange(event) {
         this.setState({searchValue: event.target.value});
+      }
+      handleKeyPress = (e) => {
+        // 눌려진 키가 Enter 면 handleCreate 호출
+        if(e.key === 'Enter') {
+          this.handleSearch();
+        }
       }
     handleSearch(){
        
@@ -31,9 +38,11 @@ class SearchComponent extends Component {
         });
     }
    render() {
+       const{handleKeyPress}=this;
       return(
          <div className="input-group input-group-lg" id="SearchComponent">
             <input
+                onKeyPress={this.handleKeyPress}
                 className="form-control form-control-lg"
                 type="text"
                 size='50'
