@@ -10,7 +10,7 @@ function setErrorMsg(error) {
 class LoginModal extends Component {
   state = { loginMessage: null }
   handleSubmit = (e) => {
-      e.preventDefault()
+      // e.preventDefault()
       login(this.email.value, this.pw.value)
       .then(()=>{
         this.props.history.push('/')
@@ -24,8 +24,14 @@ class LoginModal extends Component {
         googlelogin()
         this.props.history.push('/')
       }
-    
+      handleKeyPress = (e) => {
+        // 눌려진 키가 Enter 면 handleCreate 호출
+        if(e.key === 'Enter') {
+            this.handleSubmit();
+        }
+    }
   render () {
+    const{handleKeyPress}=this;
     return ( 
       <div className="container py-5" >
         <div className="col-md-12" id="LoginContainer">
@@ -36,7 +42,7 @@ class LoginModal extends Component {
                 <h3 className="mb-0">Login</h3>
               </div>
               <div className="card-body">
-                <form className="form" autoComplete="off" id="formLogin">
+                <form className="form" autoComplete="off" id="formLogin" onKeyPress={handleKeyPress}>
                   <div className="form-group">
                     <label>Email</label>
                     <input className="form-control form-control-lg rounded-0" name="uname1" id="uname1" ref={(email) => this.email = email} placeholder="Email"/>
@@ -53,7 +59,7 @@ class LoginModal extends Component {
                   }
                   <button type="button" className="btn btn-success btn-block" onClick={this.handleSubmit}>Login</button>
                   <br/>
-                  <button className="btn btn-warning btn-block" onClick={this.googleloginSubmit}>Google Login</button>
+                  <button type="button" className="btn btn-warning btn-block" onClick={this.googleloginSubmit}>Google Login</button>
                   <br/>
                   <Link to="/Signup">
                     <button type="button" className="btn btn-info btn-block"> Create A New Account </button>

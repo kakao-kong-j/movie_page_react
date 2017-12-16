@@ -18,12 +18,12 @@ class SearchComponent extends Component {
     handleChange(event) {
         this.setState({searchValue: event.target.value});
       }
-      handleKeyPress = (e) => {
+    handleKeyPress = (e) => {
         // 눌려진 키가 Enter 면 handleCreate 호출
         if(e.key === 'Enter') {
-          this.handleSearch();
+            this.handleSearch();
         }
-      }
+    }
     handleSearch(){
        
             setTimeout(() => {
