@@ -38,7 +38,6 @@ class SearchComponent extends Component {
         });
     }
    render() {
-       const{handleKeyPress}=this;
       return(
          <div className="input-group input-group-lg" id="SearchComponent">
             <input

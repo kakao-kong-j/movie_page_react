@@ -28,8 +28,8 @@ class LoginModal extends Component {
         // 눌려진 키가 Enter 면 handleCreate 호출
         if(e.key === 'Enter') {
             this.handleSubmit();
-        }
-    }
+      }
+      }
   render () {
     const{handleKeyPress}=this;
     return ( 

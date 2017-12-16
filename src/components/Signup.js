@@ -6,6 +6,7 @@ class Signup extends Component {
     super(props);
     this.state = { registerError: null }
     this.handleSubmit=this.handleSubmit.bind(this)
+    this.handleKeyPress=this.handleKeyPress.bind(this)
     this.setErrorMsg=this.setErrorMsg.bind(this)
   }
   setErrorMsg(error) {
@@ -14,10 +15,19 @@ class Signup extends Component {
     }
   }
         handleSubmit = (e) => {
-          e.preventDefault()
+          // e.preventDefault()
           auth(this.email.value, this.pw.value)
+          .then(()=>{
+            this.props.history.push('/')
+          })
           .catch(e => this.setState(this.setErrorMsg(e)))
         }
+        handleKeyPress = (e) => {
+          // 눌려진 키가 Enter 면 handleCreate 호출
+          if(e.key === 'Enter') {
+              this.handleSubmit();
+        }
+      }
         render () {
           return (
             <div className="container py-5" >
@@ -31,7 +41,7 @@ class Signup extends Component {
                         <h3 className="mb-0">Signup</h3>
                       </div>
                       <div className="card-body">
-                        <form className="form" autoComplete="off" id="formLogin">
+                        <form className="form" autoComplete="off" id="formLogin" onKeyDown={this.handleKeyPress}>
                           <div className="form-group">
                             <label>Email</label>
                             <input className="form-control form-control-lg rounded-0" name="uname1" id="uname1" ref={(email) => this.email = email} placeholder="Email"/>
