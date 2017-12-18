@@ -52,7 +52,7 @@ class Introduce extends Component {
                                 MovieInfo is made with the API provided by YTS.am. 
                                 Please note that the information in the MovieInfo except for the comments belongs to YTS.am.
                             </p>
-                            <a href="#!" className="btn btn-primary btn-block">Visit YTS.am</a>
+                            <a href="https://yts.am/" className="btn btn-primary btn-block">Visit YTS.am</a>
                         </div>
                         <br/>
                     </div>

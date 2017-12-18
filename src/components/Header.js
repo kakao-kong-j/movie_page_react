@@ -14,43 +14,47 @@ class Header extends Component {
     {
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
             if (user) {
-              this.setState({
-                authed: true,
-                loading: false,
-              })
+                this.setState({
+                    authed: true,
+                    loading: false,
+                })
             } else {
-              this.setState({
-                authed: false,
-                loading: false
-              })
+                this.setState({
+                    authed: false,
+                    loading: false
+                })
             }
-          })  
+        })  
     }
     logout(){
         firebaseAuth().signOut()
     }
     authCheck()
     {
-    if(this.state.authed)
-    {
-        return   (
-            <NavLink to="/Logout" className="flex-sm-fill text-sm-center nav-link px-8 float-right align-self-center" activeClassName="nav-link active">Logout</NavLink>
-        )
+        const repositoryName = "movie_page_react";
+        const basicPath = "/" + repositoryName;
+        if(this.state.authed)
+        {
+            return   (
+                <NavLink to={basicPath+"/Signup"} className="flex-sm-fill text-sm-center nav-link px-8 float-right align-self-center" activeClassName="nav-link active">Logout</NavLink>
+            )
     }
         else{
             return(
-            <NavLink to="/login" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Login</NavLink>
+            <NavLink to={basicPath+"/login"} className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Login</NavLink>
             )
     }
 }
    render() {
+    const repositoryName = "movie_page_react";
+    const basicPath = "/" + repositoryName;
     return (
         <div>
             <div className="nav nav-pills flex-column lg flex-sm-row bg-dark">
-                <NavLink exact to="/" className="px-5 mr-auto"id="logo">  </NavLink>
-                <NavLink exact to="/" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Introduce</NavLink>
-                <NavLink to="/MovieList" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">MovieList</NavLink>
-                <NavLink to="/board" className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Board</NavLink>
+                <NavLink exact to={basicPath+"/"} className="px-5 mr-auto"id="logo">  </NavLink>
+                <NavLink exact to={basicPath+"/"} className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Introduce</NavLink>
+                <NavLink to={basicPath+"/MovieList"} className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">MovieList</NavLink>
+                <NavLink to={basicPath+"/board"} className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Board</NavLink>
                 {this.authCheck()}
 
             </div>

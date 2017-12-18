@@ -13,7 +13,7 @@ class LoginModal extends Component {
       // e.preventDefault()
       login(this.email.value, this.pw.value)
       .then(()=>{
-        this.props.history.push('/')
+        this.props.history.push('/movie_page_react/')
       })
         .catch((error) => {
             this.setState(setErrorMsg('Invalid username/password.'))
@@ -22,7 +22,7 @@ class LoginModal extends Component {
     googleloginSubmit = (e) => {
         e.preventDefault()
         googlelogin()
-        this.props.history.push('/')
+        this.props.history.push('/movie_page_react/')
       }
       handleKeyPress = (e) => {
         // 눌려진 키가 Enter 면 handleCreate 호출
@@ -61,7 +61,7 @@ class LoginModal extends Component {
                   <br/>
                   <button type="button" className="btn btn-warning btn-block" onClick={this.googleloginSubmit}>Google Login</button>
                   <br/>
-                  <Link to="/Signup">
+                  <Link to="/movie_page_react/Signup">
                     <button type="button" className="btn btn-info btn-block"> Create A New Account </button>
                   </Link> 
                 </form>

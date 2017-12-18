@@ -18,7 +18,7 @@ class Signup extends Component {
           // e.preventDefault()
           auth(this.email.value, this.pw.value)
           .then(()=>{
-            this.props.history.push('/')
+            this.props.history.push('/movie_page_react/')
           })
           .catch(e => this.setState(this.setErrorMsg(e)))
         }
