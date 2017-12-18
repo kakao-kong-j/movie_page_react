@@ -28,11 +28,13 @@
 ## Running on your Machine
 
 >These instructions will get you a copy of the project up and running on your local machine for development or testing purposes.
+>This project is optimized for gh-pages. If you want to use it in another way, please edit the router of app.js section.
 
 ### Prerequisites
 
 * Node.js 6.10^
 * Firebase
+* gh-pages
 
 ### Installation
 
@@ -48,6 +50,10 @@ using following command:
 Running Backend Development Server
 
 > npm start
+
+## TODO
+
+> This project did not consider the mobile environment. That's why this project need to optimize for mobile.
 
 ## Feedback
 
