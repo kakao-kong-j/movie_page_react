@@ -44,18 +44,20 @@ constructor(props){
       }
   }
   render() {
+    const repositoryName = "movie_page_react";
+    const basicPath = "/" + repositoryName;
     return (
       <Router>
       <div>
       <Header/>
       <Switch>
-      <Route  path="/MovieList" name='MovieList' component={MovieList}/>
-      <Route exact path="/" name='Introduce' component={Introduce}/>
-      <Route path="/board" name='board' component={Board}/>
-      <Route path="/Logout" name='Logout' component={Logout}/>
-      <Route path="/login" name='login'component={this.authCheck(true)}/>
-      <Route path="/Signup" name='Signup' component={this.authCheck(false)}/>
-      <Route path="/MovieDetail/:id" name='MovieDetail' component={MovieDetail}/>
+      <Route  path={basicPath+"/MovieList"} name='MovieList' component={MovieList}/>
+      <Route exact path={basicPath+"/"} name='Introduce' component={Introduce}/>
+      <Route path={basicPath+"/board"} name='board' component={Board}/>
+      <Route path={basicPath+"/Logout"} name='Logout' component={Logout}/>
+      <Route path={basicPath+"/login"} name='login'component={this.authCheck(true)}/>
+      <Route path={basicPath+"/Signup"} name='Signup' component={this.authCheck(false)}/>
+      <Route path={basicPath+"/MovieDetail/:id"} name='MovieDetail' component={MovieDetail}/>
       <Route component={NoMatch}/>
       </Switch>
       </div>
