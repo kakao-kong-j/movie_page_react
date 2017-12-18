@@ -1,6 +1,6 @@
 # MovieInfo
 
-> This service is now available at http://www.movieinfo.gq
+> This service is now available at https://jinhokong.github.io/movie_page_react/
 
 ## About
 

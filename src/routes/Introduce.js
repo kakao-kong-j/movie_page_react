@@ -20,7 +20,7 @@ class Introduce extends Component {
                                 MovieInfo is a platform that allows users to easily view 
                                 information based on movie information provided by YTS.am
                             </p>
-                            <a href="http://www.movieinfo.gq" className="btn btn-primary btn-block">Go MovieInfo</a>
+                            <a href="https://jinhokong.github.io/movie_page_react/" className="btn btn-primary btn-block">Go MovieInfo</a>
                         </div>
                         <br/>
                     </div>
