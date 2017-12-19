@@ -78,29 +78,29 @@ class CommentWrite extends Component {
       }
    render() {
       return(
-        <div className="input-group input-group-lg " id="CommentWrite">
-        <textarea 
-            className="col-lg-9" 
-            rows="5" 
-            id="commentwriteinput" 
-            type="text"
-            value={this.state.CommentValue}
-            onChange={this.handleChange}
-        />
-        <div className="input-group-addon col-lg-2 justify-content-center">
-            <Rate
-                size={30}
-                count={5}
-                value={this.state.rating}
-                onChange={this.onChange}
+        <div className="input-group input-group-lg d-flex" id="CommentWrite">
+            <textarea 
+                className="col-8" 
+                rows="5"  
+                id="commentwriteinput" 
+                type="text"
+                value={this.state.CommentValue}
+                onChange={this.handleChange}
             />
-        </div>
-        <button 
-            className="input-group-addon col-lg-1 text-center"
-            onClick={this.handleSubmit}
-            >
-            send
-        </button>
+            <div className="input-group-addon col-2 justify-content-center">
+                <Rate
+                    size={30}
+                    count={5}
+                    value={this.state.rating}
+                    onChange={this.onChange}
+                />
+            </div>
+            <button 
+                className="input-group-addon col-2 btn btn-success justify-content-center"
+                onClick={this.handleSubmit}
+                >
+                Send
+            </button>
         </div>
     );
     }

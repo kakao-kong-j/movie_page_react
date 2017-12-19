@@ -11,7 +11,7 @@ class Logout extends Component {
     }
     logout(){
         firebaseAuth().signOut()
-        this.props.history.push('/')
+        this.props.history.push('/movie_page_react')
     }
    render() {
       return(

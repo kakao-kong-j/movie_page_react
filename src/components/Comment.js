@@ -60,8 +60,7 @@ class Comment extends Component {
     }
     render() {
         return (
-            <div id="comment" className="col-md-12">
-                <div className="col-md-11 mx-5">
+            <div id="comment">
             {
                this.authCheck()
             }
@@ -82,7 +81,6 @@ class Comment extends Component {
                         }
                     )
                 }
-                </div>
             </div>
         );
     }

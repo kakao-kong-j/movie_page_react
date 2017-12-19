@@ -64,13 +64,12 @@
         flex-wrap:wrap;
     margin-bottom:20px;
 }
-
-#root > div > div:nth-child(2) > div > div > div:nth-child(2) > div.MovieDetail__Genres > span{
+.MovieDetail__Genres{
     margin-right:10px;
     color:black;
 }
 
-#root > div > div:nth-child(2) > div > div > div:nth-child(2) > div.MovieDetail__description {
+.MovieDetail__description {
     width:90%;
     border:5px solid #2eb9ce;
     padding: 5px;
@@ -89,10 +88,10 @@
     -webkit-box-shadow: -10px 19px 38px rgba(83, 83, 83, 0.3), 10px 15px 12px rgba(80,80,80,0.22);
             box-shadow: -10px 19px 38px rgba(83, 83, 83, 0.3), 10px 15px 12px rgba(80,80,80,0.22);
 }
-#root > div > div:nth-child(2) > div > div > div:nth-child(3){
+.MovieDetail__Column{
     width: 100%;
 }
-#root > div > div:nth-child(2) > div > div > div:nth-child(3) > div > div > div > img{
+.Movie__ScreenShot_Each> img{
     max-width: 30%;
     padding: 1%;
     position: relative;
@@ -101,7 +100,7 @@
     -webkit-box-shadow: -10px 19px 38px rgba(83, 83, 83, 0.3), 10px 15px 12px rgba(80,80,80,0.22);
             box-shadow: -10px 19px 38px rgba(83, 83, 83, 0.3), 10px 15px 12px rgba(80,80,80,0.22);
 }
-#root > div > div:nth-child(2) > div > div > div:nth-child(2) > div.MovieDetail__Casting > span > div > span > div.Casting_Img > img{
+.Casting_Img > img{
     position: relative;
     width: 50%;
     border-radius: 200px 200px 200px 200px;
@@ -111,7 +110,7 @@
     -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
 }
-#root > div > div:nth-child(2) > div > div > div:nth-child(2) > div.MovieDetail__Casting > span > div  {
+.MovieDetail__Casting > span > div  {
     width:40%;
     border:5px solid #2eb9ce;
     padding: 5px;
@@ -121,7 +120,7 @@
     -moz-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.75);
 }
-@media screen and (min-width:320px) and (max-width:667px){
+/* @media screen and (min-width:320px) and (max-width:667px){
     .MovieDetail{
         width:100%;
     }
@@ -141,4 +140,4 @@
     .MovieDetail__Column{
         width:100%!important;
     }
-}
+} */

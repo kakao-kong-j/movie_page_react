@@ -22,7 +22,10 @@ class LoginModal extends Component {
     googleloginSubmit = (e) => {
         e.preventDefault()
         googlelogin()
-        this.props.history.push('/movie_page_react/')
+        setTimeout(()=>{
+          this.props.history.push('/movie_page_react/')
+        },0)
+        
       }
       handleKeyPress = (e) => {
         // 눌려진 키가 Enter 면 handleCreate 호출

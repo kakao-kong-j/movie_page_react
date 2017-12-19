@@ -36,7 +36,7 @@ class Header extends Component {
         if(this.state.authed)
         {
             return   (
-                <NavLink to={basicPath+"/Signup"} className="flex-sm-fill text-sm-center nav-link px-8 float-right align-self-center" activeClassName="nav-link active">Logout</NavLink>
+                <NavLink to={basicPath+"/Logout"} className="flex-sm-fill text-sm-center nav-link px-8 float-right align-self-center" activeClassName="nav-link active">Logout</NavLink>
             )
     }
         else{
@@ -46,15 +46,13 @@ class Header extends Component {
     }
 }
    render() {
-    const repositoryName = "movie_page_react";
-    const basicPath = "/" + repositoryName;
     return (
         <div>
             <div className="nav nav-pills flex-column lg flex-sm-row bg-dark">
-                <NavLink exact to={basicPath+"/"} className="px-5 mr-auto"id="logo">  </NavLink>
-                <NavLink exact to={basicPath+"/"} className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Introduce</NavLink>
-                <NavLink to={basicPath+"/MovieList"} className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">MovieList</NavLink>
-                <NavLink to={basicPath+"/board"} className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Board</NavLink>
+                <NavLink exact to={"/movie_page_react"} className="px-5 mr-auto"id="logo">  </NavLink>
+                <NavLink exact to={"/movie_page_react"} className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Introduce</NavLink>
+                <NavLink to={"/movie_page_react/MovieList"} className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">MovieList</NavLink>
+                <NavLink to={"/movie_page_react/board"} className="flex-sm-fill text-sm-center nav-link px-5 float-right align-self-center" activeClassName="nav-link active">Board</NavLink>
                 {this.authCheck()}
 
             </div>
