@@ -27,7 +27,7 @@ class Introduce extends Component {
                   information based on movie information provided by YTS.am
                 </p>
                 <a
-                  href="https://jinhokong.github.io/movie_page_react/"
+                  href="https://jinhokong.github.io/movie_page_react/movielist"
                   className="btn btn-primary btn-block"
                 >
                   Go MovieInfo
