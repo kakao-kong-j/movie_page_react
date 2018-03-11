@@ -19,12 +19,10 @@ class LoginModal extends Component {
         this.setState(setErrorMsg("Invalid username/password."));
       });
   };
-  googleloginSubmit = e => {
+  googleloginSubmit = async e => {
     e.preventDefault();
     googlelogin();
-    setTimeout(() => {
-      this.props.history.push("/movie_page_react/");
-    }, 0);
+    await this.props.history.push("/movie_page_react/");
   };
   handleKeyPress = e => {
     // 눌려진 키가 Enter 면 handleCreate 호출

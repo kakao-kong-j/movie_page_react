@@ -49,23 +49,27 @@ class MovieList extends Component {
   };
 
   _renderMovies = () => {
-    const movies = this.state.movies.map(movie => {
-      return (
-        <Movie
-          id={movie.id}
-          language={movie.language}
-          rt_rating={movie.with_rt_ratings}
-          rating={movie.rating}
-          title={movie.title_english}
-          poster={movie.medium_cover_image}
-          key={movie.id}
-          genres={movie.genres}
-          synopsis={movie.synopsis}
-          year={movie.year}
-        />
-      );
-    });
-    return movies;
+    if(this.state.movies){
+      console.log(this.state.movies)
+      const movies = this.state.movies.map(movie => {
+        return (
+          <Movie
+            id={movie.id}
+            language={movie.language}
+            rt_rating={movie.with_rt_ratings}
+            rating={movie.rating}
+            title={movie.title_english}
+            poster={movie.medium_cover_image}
+            key={movie.id}
+            genres={['']}
+            synopsis={movie.synopsis}
+            year={movie.year}
+          />
+        );
+      });
+      return movies;
+    }
+    return null;
   };
   nextPage() {
     this.setState((prevState, props) => {
@@ -77,19 +81,13 @@ class MovieList extends Component {
       return { pages: prevState.pages - 1 };
     });
   }
-  reRenderingPrevPage() {
-    const a = this;
-    setTimeout(function() {
-      a.prevPage();
-      a._getMovies();
-    }, 0);
+  reRenderingPrevPage= async()=> {
+      await this.prevPage();
+      await this._getMovies();
   }
-  reRenderingNextPage() {
-    const a = this;
-    setTimeout(function() {
-      a.nextPage();
-      a._getMovies();
-    }, 0);
+  reRenderingNextPage= async()=> {
+    await this.nextPage();
+    await this._getMovies();
   }
   handler(text) {
     this.setState({

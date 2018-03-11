@@ -22,11 +22,9 @@ class SearchComponent extends Component {
       this.handleSearch();
     }
   };
-  handleSearch() {
-    setTimeout(() => {
-      this.props.handler(this.state.searchValue);
-      this.props.getmovie();
-    }, 0);
+  handleSearch= async()=> {
+     await this.props.handler(this.state.searchValue);
+     await this.props.getmovie();
   }
   onSearch;
   clearSearch() {
