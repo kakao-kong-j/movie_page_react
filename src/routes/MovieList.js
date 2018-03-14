@@ -24,6 +24,7 @@ class MovieList extends Component {
       });
     } else {
       const movies = await this._callAPI();
+      console.log(movies)
       this.setState({
         movies
       });
@@ -31,20 +32,20 @@ class MovieList extends Component {
   };
   _callAPI = () => {
     return fetch(
-      "https://yts.am/api/v2/list_movies.json?sort_by=like_count&page=" +
+      "https://api.themoviedb.org/3/movie/popular?api_key=0dcfe644f06f6d2555dd2e8f96508646&language=en-US&page=" +
         this.state.pages
     )
       .then(temp => temp.json())
-      .then(json => json.data.movies)
+      .then(json => json.results)
       .catch(err => console.log(err));
   };
   _callAPI_search = () => {
     return fetch(
-      "https://yts.am/api/v2/list_movies.json?query_term=" +
+      "https://api.themoviedb.org/3/search/movie?api_key=0dcfe644f06f6d2555dd2e8f96508646&language=en-US&page=1&include_adult=false&query=" +
         this.state.searchValue
     )
       .then(temp => temp.json())
-      .then(json => json.data.movies)
+      .then(json => json.results)
       .catch(err => console.log(err));
   };
 
@@ -55,15 +56,15 @@ class MovieList extends Component {
         return (
           <Movie
             id={movie.id}
-            language={movie.language}
-            rt_rating={movie.with_rt_ratings}
-            rating={movie.rating}
-            title={movie.title_english}
-            poster={movie.medium_cover_image}
+            language={"English"}
+            rt_rating={movie.vote_average}
+            rating={movie.vote_average}
+            title={movie.title}
+            poster={"https://image.tmdb.org/t/p/w500"+movie.poster_path}
             key={movie.id}
             genres={['']}
-            synopsis={movie.synopsis}
-            year={movie.year}
+            synopsis={movie.overview}
+            year={movie.release_date}
           />
         );
       });

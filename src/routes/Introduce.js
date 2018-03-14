@@ -69,18 +69,18 @@ class Introduce extends Component {
             <div className="col-md-6 mx-auto bg-light">
               <img
                 className="card-img-top"
-                src="https://yts.am/assets/images/website/logo-YTS.svg"
+                src="https://www.themoviedb.org/static_cache/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg"
                 alt="Card"
               />
               <div className="card-body border border-primary">
-                <h4 className="card-title">YTS</h4>
+                <h4 className="card-title">The Movie DB</h4>
                 <p className="card-text ">
-                  MovieInfo is made with the API provided by YTS.am. Please note
+                  MovieInfo is made with the API provided by The Movie DB. Please note
                   that the information in the MovieInfo except for the comments
-                  belongs to YTS.am.
+                  belongs to The Movie DB.
                 </p>
-                <a href="https://yts.am/" className="btn btn-primary btn-block">
-                  Visit YTS.am
+                <a href="https://www.themoviedb.org/" className="btn btn-primary btn-block">
+                  Visit The Movie DB
                 </a>
               </div>
               <br />

@@ -6,7 +6,7 @@ class MovieGenres extends Component {
     genre: PropTypes.array.isRequired
   };
   render() {
-    return <span className="Movie__Genre"> {this.props.genre} </span>;
+    return <span className="Movie__Genre"> {this.props.genre+", "} </span>;
   }
 }
 MovieGenres.propTypes = {

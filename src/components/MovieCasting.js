@@ -6,9 +6,9 @@ class MovieCasting extends Component {
     return (
       <span className="Movie__Casting">
         <MovieCastDetail
-          url_small_image={this.props.casts.url_small_image}
+          url_small_image={"https://image.tmdb.org/t/p/w500"+this.props.casts.profile_path}
           name={this.props.casts.name}
-          character_name={this.props.casts.character_name}
+          character_name={this.props.casts.character}
         />
       </span>
     );

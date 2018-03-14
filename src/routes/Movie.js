@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../css/movie.css";
 import MoviePoster from "../components/MoviePoster";
-import MovieGenres from "../components/MovieGenres";
 import LinesEllipsis from "react-lines-ellipsis";
 
 class Movie extends Component {
@@ -20,11 +19,7 @@ class Movie extends Component {
           <br />
           <br />
           <br />
-          <div className="Movie__Genres">
-            {this.props.genres.map((genre, index) => (
-              <MovieGenres genre={genre} key={index} />
-            ))}
-          </div>
+          
           <div className="Movie__Synopsis">
             <LinesEllipsis
               text={this.props.synopsis}

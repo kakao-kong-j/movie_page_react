@@ -4,8 +4,8 @@
 
 ## About
 
-> MovieInfo is a platform that allows users to easily view information based on movie information provided by YTS.am'.
-
+> MovieInfo is a platform that allows users to easily view information based on movie information provided by The Movie DB'.
+ 
 ## Stack
 
 ### Frontend
